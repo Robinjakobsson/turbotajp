@@ -15,7 +15,10 @@ class GameSettingsViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func startGameButton(_ sender: UIButton) {
+    }
+    
+    @IBOutlet weak var languagePicker: UIPickerView!
     /*
     // MARK: - Navigation
 
