@@ -11,7 +11,12 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        ////fdfs
+        
+    }
+    
+    func helloworld() {
+        
+        // kod
     }
 
 
