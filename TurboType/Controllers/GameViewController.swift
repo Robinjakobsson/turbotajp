@@ -130,12 +130,31 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
     func alertBox() {
         let alertController = UIAlertController(title: "Times Up!", message: "You managed to score a whooping total of \(points) points!", preferredStyle: .alert)
         
+        let tryAgainAction = UIAlertAction(title: "Try again?", style: .default) { _ in
+            self.resetGame()
+        }
+        
         let okAction = UIAlertAction(title: "OK", style: .default) { _ in
             self.performSegue(withIdentifier: "toHighScore", sender: self)
             
         }
         alertController.addAction(okAction)
+        alertController.addAction(tryAgainAction)
         
         present(alertController,animated: true, completion: nil)
+    }
+    
+    func resetGame() {
+        points = 0
+        elapsedTime = 0.0
+        
+        pointsLabel.text = "0"
+        timerView.setProgress(0.0, animated: true)
+        
+        currentWord = randomWordGenerator()
+        wordLabel.text = currentWord.word
+        
+        timer?.invalidate()
+        startTimer()
     }
 }
