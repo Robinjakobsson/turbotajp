@@ -22,9 +22,9 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var secondsLeftLabel: UILabel!
     @IBOutlet weak var timerView: UIProgressView!
   
-    var difficulty : Double?
+    
     var points : Int = 0
-    let totalTime : Double = 20.0
+    var totalTime : Double?
     var elapsedTime : Double = 0.0
     var timer : Timer?
     var currentWord : Word!
@@ -39,17 +39,13 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
         wordLabel.text = currentWord.word
 
         
-        if let difficulty = difficulty {
-            
-            print("String received \(difficulty)")
-        }
     
 
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
-        if elapsedTime < totalTime {
+        if elapsedTime < totalTime ?? 1 {
             
             guard let inputText = textField.text else {
                 return true
@@ -89,11 +85,11 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
         
         timer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { timer in
             self.elapsedTime += interval
-            let progress = Float(self.elapsedTime / self.totalTime)
+            let progress = Float(self.elapsedTime / self.totalTime!)
             self.timerView.setProgress(progress, animated: true)
             self.updateUI()
             
-            if self.elapsedTime >= self.totalTime {
+            if self.elapsedTime >= self.totalTime! {
                 timer.invalidate()
                 
                 self.alertBox()
