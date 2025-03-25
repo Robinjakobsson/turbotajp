@@ -21,7 +21,7 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var timerView: UIProgressView!
     
     var points : Int = 0
-    let totalTime : Double = 60.0
+    let totalTime : Double = 20.0
     var elapsedTime : Double = 0.0
     var timer : Timer?
     var currentWord : Word!
@@ -36,21 +36,32 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        guard let inputText = textField.text else {
-                   return true
-               }
         
-        checkInput(input: inputText, word: currentWord)
-               currentWord = randomWordGenerator()
-               wordLabel.text = currentWord.word
-               
-               textField.text = ""
-               
-               return true
-           }
+        if elapsedTime < totalTime {
+            
+            guard let inputText = textField.text else {
+                return true
+            }
+            
+            checkInput(input: inputText, word: currentWord)
+            currentWord = randomWordGenerator()
+            wordLabel.text = currentWord.word
+            
+            textField.text = ""
+            
+            return true
+            
+        }
+        return true
+    }
 
     
     @IBAction func passButtonPressed(_ sender: Any) {
+        let newRandomWord = randomWordGenerator()
+        
+        currentWord = newRandomWord
+        
+        updateUI()
     }
     
     
@@ -68,9 +79,12 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
             self.elapsedTime += interval
             let progress = Float(self.elapsedTime / self.totalTime)
             self.timerView.setProgress(progress, animated: true)
+            self.updateUI()
             
             if self.elapsedTime >= self.totalTime {
                 timer.invalidate()
+                
+                self.alertBox()
             }
         }
         
@@ -88,6 +102,7 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
         
         secondsLeftLabel.text = String(elapsedTime)
         pointsLabel.text = String(points)
+        wordLabel.text = currentWord.word
     }
     
     func randomWordGenerator() -> Word {
@@ -110,5 +125,17 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
             elapsedTime += 5
         }
         updateUI()
+    }
+    
+    func alertBox() {
+        let alertController = UIAlertController(title: "Times Up!", message: "You managed to score a whooping total of \(points) points!", preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+            self.performSegue(withIdentifier: "toHighScore", sender: self)
+            
+        }
+        alertController.addAction(okAction)
+        
+        present(alertController,animated: true, completion: nil)
     }
 }
