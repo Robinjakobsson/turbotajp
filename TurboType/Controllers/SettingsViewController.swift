@@ -70,7 +70,7 @@ class GameSettingsViewController: UIViewController, UIPickerViewDataSource, UIPi
                 timer = 30.0
             }
             
-            destinationVC?.difficulty = timer
+            destinationVC?.totalTime = timer
         }
         
     }
