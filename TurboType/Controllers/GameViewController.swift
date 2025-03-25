@@ -8,10 +8,16 @@
 import UIKit
 
 class GameplayViewController: UIViewController {
+    
+    var difficulty : Double?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        if let difficulty = difficulty {
+            
+            print("String received \(difficulty)")
+        }
         // Do any additional setup after loading the view.
     }
     

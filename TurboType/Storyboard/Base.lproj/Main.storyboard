@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3es-zE-X3Q">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EhD-Y7-U0s">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hj2-0R-NL5">
-                                <rect key="frame" x="175" y="208" width="42" height="21"/>
+                                <rect key="frame" x="148" y="208" width="69" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -31,7 +31,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1064.885496183206" y="-2.1126760563380285"/>
+            <point key="canvasLocation" x="1080" y="1"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ge0-nD-XgV">
@@ -68,6 +68,7 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Start"/>
                                 <connections>
                                     <action selector="startGameButton:" destination="EhD-Y7-U0s" eventType="touchUpInside" id="jaC-jT-RWx"/>
+                                    <segue destination="Lts-ko-VMa" kind="show" identifier="GameVCSegue" id="vHy-kU-mg6"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -82,7 +83,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="languagePicker" destination="v0d-lR-Oi0" id="1v7-h6-EI4"/>
+                        <outlet property="difficultyLevelPicker" destination="v0d-lR-Oi0" id="udJ-x9-O5R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ovD-Pm-STx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -94,11 +95,12 @@
             <objects>
                 <viewController id="Lts-ko-VMa" customClass="GameplayViewController" customModule="TurboType" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ege-5W-YwJ">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="lJa-nl-WRF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Zve-pm-8KQ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dn1-dA-jZc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
