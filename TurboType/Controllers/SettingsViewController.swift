@@ -48,6 +48,7 @@ class GameSettingsViewController: UIViewController, UIPickerViewDataSource, UIPi
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         //let choosenDifficulty = difficulty[row]
+        //Just a comment.
         
     }
     
