@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hj2-0R-NL5">
-                                <rect key="frame" x="175" y="208" width="42" height="21"/>
+                                <rect key="frame" x="148" y="208" width="69" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -31,7 +31,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1064.885496183206" y="-2.1126760563380285"/>
+            <point key="canvasLocation" x="1080" y="1"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ge0-nD-XgV">
@@ -58,20 +58,44 @@
                     <view key="view" contentMode="scaleToFill" id="9sK-ip-ygE">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v0d-lR-Oi0">
+                                <rect key="frame" x="10" y="592" width="373" height="216"/>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JB0-f7-eB2">
+                                <rect key="frame" x="134" y="397" width="124" height="59"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Start"/>
+                                <connections>
+                                    <action selector="startGameButton:" destination="EhD-Y7-U0s" eventType="touchUpInside" id="jaC-jT-RWx"/>
+                                    <segue destination="Lts-ko-VMa" kind="show" identifier="GameVCSegue" id="vHy-kU-mg6"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="F6h-gN-Fbl"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.99583226442337036" green="0.98903077840805054" blue="0.98271363973617554" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="v0d-lR-Oi0" firstAttribute="leading" secondItem="9sK-ip-ygE" secondAttribute="leading" constant="10" id="0lv-Hz-dlE"/>
+                            <constraint firstItem="JB0-f7-eB2" firstAttribute="centerX" secondItem="9sK-ip-ygE" secondAttribute="centerX" id="9Ph-oc-1Vb"/>
+                            <constraint firstItem="JB0-f7-eB2" firstAttribute="centerY" secondItem="9sK-ip-ygE" secondAttribute="centerY" id="eAZ-kA-quj"/>
+                            <constraint firstItem="F6h-gN-Fbl" firstAttribute="trailing" secondItem="v0d-lR-Oi0" secondAttribute="trailing" constant="10" id="gLG-j9-Y5s"/>
+                            <constraint firstItem="F6h-gN-Fbl" firstAttribute="bottom" secondItem="v0d-lR-Oi0" secondAttribute="bottom" constant="10" id="yUM-O4-eTW"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="difficultyLevelPicker" destination="v0d-lR-Oi0" id="udJ-x9-O5R"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ovD-Pm-STx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="114" y="727"/>
+            <point key="canvasLocation" x="113.74045801526717" y="726.76056338028172"/>
         </scene>
         <!--Gameplay View Controller-->
         <scene sceneID="znA-WQ-53U">
             <objects>
                 <viewController id="Lts-ko-VMa" customClass="GameplayViewController" customModule="TurboType" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ege-5W-YwJ">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="5FD-G5-7V6">
@@ -161,6 +185,7 @@
                             <constraint firstItem="TjC-50-B72" firstAttribute="top" secondItem="1Q4-ev-sMa" secondAttribute="bottom" constant="59" id="xqN-rn-ftf"/>
                         </constraints>
                     </view>
+
                     <connections>
                         <outlet property="passButton" destination="PzE-vG-rsc" id="2dI-Dy-aaM"/>
                         <outlet property="pointsLabel" destination="2jD-CB-jN7" id="SNN-gt-pBS"/>
@@ -170,6 +195,7 @@
                         <outlet property="timerView" destination="5FD-G5-7V6" id="0Dd-Sr-G4b"/>
                         <outlet property="wordLabel" destination="1Q4-ev-sMa" id="rb9-Pg-dhb"/>
                     </connections>
+                    <navigationItem key="navigationItem" id="Zve-pm-8KQ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dn1-dA-jZc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

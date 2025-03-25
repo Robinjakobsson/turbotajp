@@ -7,10 +7,12 @@
 
 import UIKit
 
+
 class GameplayViewController: UIViewController, UITextFieldDelegate{
     
     var wordManager = WordManager()
     
+
 
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var passButton: UIButton!
@@ -19,7 +21,8 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var pointsLabel: UILabel!
     @IBOutlet weak var secondsLeftLabel: UILabel!
     @IBOutlet weak var timerView: UIProgressView!
-    
+  
+    var difficulty : Double?
     var points : Int = 0
     let totalTime : Double = 20.0
     var elapsedTime : Double = 0.0
@@ -28,11 +31,20 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         textField.returnKeyType = .done
         textField.delegate = self
         
         currentWord = randomWordGenerator()
         wordLabel.text = currentWord.word
+
+        
+        if let difficulty = difficulty {
+            
+            print("String received \(difficulty)")
+        }
+    
+
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
