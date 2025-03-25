@@ -20,21 +20,34 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var secondsLeftLabel: UILabel!
     @IBOutlet weak var timerView: UIProgressView!
     
+    var points : Int = 0
     let totalTime : Double = 60.0
     var elapsedTime : Double = 0.0
     var timer : Timer?
+    var currentWord : Word!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        textField.returnKeyType = .done
+        textField.delegate = self
         
-        textField.returnKeyType = .done // Sätt Return-knappen till "Done"
-        textField.delegate = self // Sätt delegaten
+        currentWord = randomWordGenerator()
+        wordLabel.text = currentWord.word
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        print("Return knappen trycktes i tangentbordet")
-        return true
-    }
+        guard let inputText = textField.text else {
+                   return true
+               }
+        
+        checkInput(input: inputText, word: currentWord)
+               currentWord = randomWordGenerator()
+               wordLabel.text = currentWord.word
+               
+               textField.text = ""
+               
+               return true
+           }
 
     
     @IBAction func passButtonPressed(_ sender: Any) {
@@ -44,6 +57,7 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
     @IBAction func startButton(_ sender: Any) {
         updateUI()
         textField.becomeFirstResponder()
+        startTimer()
     }
     
     
@@ -73,19 +87,28 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
         
         
         secondsLeftLabel.text = String(elapsedTime)
+        pointsLabel.text = String(points)
     }
     
     func randomWordGenerator() -> Word {
         return wordManager.words.randomElement() ?? Word(word: "Funka ej", answer: "Funkar inte")
     }
     
-    func gameStart() {
+    func checkInput(input : String, word: Word) {
+        let trimmedInput = input.trimmingCharacters(in: .whitespacesAndNewlines)
+        let trimmedAnswer = word.answer.trimmingCharacters(in: .whitespacesAndNewlines)
         
-        if totalTime > 0 {
+        print("\(trimmedInput)")
+        print("trimmed answer:\(trimmedAnswer)")
+        
+        if trimmedInput.lowercased() == trimmedAnswer.lowercased() {
+            points += 10
+            print("Rätt svar!")
             
-            let randomWord = randomWordGenerator()
-            wordLabel.text = randomWord.word
+        } else {
+            print("Fel svar")
+            elapsedTime += 5
         }
-        
+        updateUI()
     }
 }
