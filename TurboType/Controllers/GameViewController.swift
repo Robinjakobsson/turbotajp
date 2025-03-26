@@ -6,11 +6,12 @@
 //
 //hej
 import UIKit
+import AVFoundation
 
 
 class GameplayViewController: UIViewController, UITextFieldDelegate{
     var wordManager = WordManager()
-    
+    var audioPlayer: AVAudioPlayer?
     
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var passButton: UIButton!
@@ -35,6 +36,12 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
         
         currentWord = randomWordGenerator()
         wordLabel.text = currentWord.word
+        
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        resetGame()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -59,7 +66,7 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
     @IBAction func passButtonPressed(_ sender: Any) {
         let newRandomWord = randomWordGenerator()
         currentWord = newRandomWord
-        elapsedTime += 2.5
+        elapsedTime -= 2.5
         points -= 5
         
         updateUI()
@@ -76,17 +83,42 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
     func startTimer() {
         let interval = 0.1
         
+        self.elapsedTime = totalTime!
+        
         timer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { timer in
-            self.elapsedTime += interval
-            let progress = Float(self.elapsedTime / self.totalTime!)
+            self.elapsedTime -= interval
+            
+            let progress = 1.0 - Float(self.elapsedTime / self.totalTime!)
             self.timerView.setProgress(progress, animated: true)
             self.updateUI()
             
-            if self.elapsedTime >= self.totalTime! {
+            if self.elapsedTime <= 5 {
+                self.timerView.progressTintColor = UIColor.red
+            } else {
+                self.timerView.progressTintColor = UIColor.black
+            }
+            
+            
+            if self.elapsedTime <= 0 {
+                
+                self.elapsedTime = 0
                 timer.invalidate()
                 
-                self.alertBox()
+                self.performSegue(withIdentifier: "toEndGame", sender: nil)
+                
+               // self.alertBox()
             }
+        }
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "toEndGame" {
+            
+            let destinationVC = segue.destination as? EndgameViewController
+            
+            destinationVC?.totalTime = totalTime
         }
         
     }
@@ -120,14 +152,16 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
         if trimmedInput.lowercased() == trimmedAnswer.lowercased() {
             points += 10
             print("Rätt svar!")
-            
+
             self.view.backgroundColor = UIColor.fromHex("#82DE60")
-            
+            playSound(forResource: "correct")
+
             
         } else {
             print("Fel svar")
-            elapsedTime += 5
+            elapsedTime -= 5
             self.view.backgroundColor = UIColor.fromHex("#ED696B")
+            playSound(forResource: "incorrect")
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
@@ -159,6 +193,7 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
     func resetGame() {
         points = 0
         elapsedTime = 0.0
+        elapsedTime = totalTime!
         
         pointsLabel.text = "0"
         timerView.setProgress(0.0, animated: true)
@@ -182,5 +217,16 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
         }
         
         userDefaults.set(scores, forKey: "highScores")
+    }
+    
+    func playSound(forResource resource: String) {
+        if let url = Bundle.main.url(forResource: resource, withExtension: "mp3") {
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: url)
+                audioPlayer?.play()
+            } catch {
+                print("Kunde inte spela upp ljudet")
+            }
+        }
     }
 }

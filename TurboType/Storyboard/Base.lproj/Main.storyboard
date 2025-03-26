@@ -16,33 +16,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gth-nR-Eam">
-                                <rect key="frame" x="101" y="659" width="190" height="90"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Info">
-                                    <backgroundConfiguration key="background">
-                                        <color key="backgroundColor" red="1" green="0.98823529480000005" blue="0.97254902119999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <color key="strokeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </backgroundConfiguration>
-                                    <fontDescription key="titleFontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="37"/>
-                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="infoButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ix8-Y7-Vk5"/>
-                                    <action selector="startGameButton:" destination="EhD-Y7-U0s" eventType="touchUpInside" id="6EA-WF-gVa"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TKQ-9w-SKV">
-                                <rect key="frame" x="101" y="553" width="190" height="90"/>
+                                <rect key="frame" x="91" y="545" width="210" height="85"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Highscore">
+                                <buttonConfiguration key="configuration" style="filled" title="Highscore" cornerStyle="large">
                                     <backgroundConfiguration key="background">
                                         <color key="backgroundColor" red="1" green="0.98823529480000005" blue="0.97254902119999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <color key="strokeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </backgroundConfiguration>
-                                    <fontDescription key="titleFontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="37"/>
+                                    <fontDescription key="titleFontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="45"/>
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -51,15 +34,15 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CEE-1y-UJA">
-                                <rect key="frame" x="101" y="448" width="190" height="90"/>
+                                <rect key="frame" x="91" y="452" width="210" height="85"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Play">
+                                <buttonConfiguration key="configuration" style="filled" title="Play" cornerStyle="large">
                                     <backgroundConfiguration key="background">
                                         <color key="backgroundColor" red="1" green="0.98823529480000005" blue="0.97254902119999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <color key="strokeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </backgroundConfiguration>
-                                    <fontDescription key="titleFontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="37"/>
+                                    <fontDescription key="titleFontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="45"/>
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -67,48 +50,48 @@
                                     <segue destination="EhD-Y7-U0s" kind="presentation" modalPresentationStyle="fullScreen" id="Wiz-6t-9qd"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6tJ-Mi-DDF">
-                                <rect key="frame" x="55" y="155" width="50" height="50"/>
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6tJ-Mi-DDF">
+                                <rect key="frame" x="43" y="143" width="55" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="T">
+                                <buttonConfiguration key="configuration" style="filled" title="T" cornerStyle="large">
                                     <backgroundConfiguration key="background">
                                         <color key="backgroundColor" red="1" green="0.98823529480000005" blue="0.97254902119999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <color key="strokeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </backgroundConfiguration>
-                                    <fontDescription key="titleFontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="37"/>
+                                    <fontDescription key="titleFontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="45"/>
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="startGameButton:" destination="EhD-Y7-U0s" eventType="touchUpInside" id="kCh-3a-ibW"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qHh-X4-pv9">
-                                <rect key="frame" x="113" y="155" width="50" height="50"/>
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qHh-X4-pv9">
+                                <rect key="frame" x="106" y="143" width="55" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="U">
+                                <buttonConfiguration key="configuration" style="filled" title="U" cornerStyle="large">
                                     <backgroundConfiguration key="background">
                                         <color key="backgroundColor" red="1" green="0.98823529480000005" blue="0.97254902119999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <color key="strokeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </backgroundConfiguration>
-                                    <fontDescription key="titleFontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="37"/>
+                                    <fontDescription key="titleFontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="45"/>
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="startGameButton:" destination="EhD-Y7-U0s" eventType="touchUpInside" id="K4h-Yj-KLW"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9LK-hW-llm">
-                                <rect key="frame" x="171" y="155" width="50" height="50"/>
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9LK-hW-llm">
+                                <rect key="frame" x="169" y="143" width="55" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="R">
+                                <buttonConfiguration key="configuration" style="filled" title="R" cornerStyle="large">
                                     <backgroundConfiguration key="background">
                                         <color key="backgroundColor" red="1" green="0.98823529480000005" blue="0.97254902119999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <color key="strokeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </backgroundConfiguration>
-                                    <fontDescription key="titleFontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="37"/>
+                                    <fontDescription key="titleFontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="45"/>
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -116,15 +99,15 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pcu-d7-quR">
-                                <rect key="frame" x="229" y="155" width="50" height="50"/>
+                                <rect key="frame" x="232" y="143" width="55" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="B">
+                                <buttonConfiguration key="configuration" style="filled" title="B" cornerStyle="large">
                                     <backgroundConfiguration key="background">
                                         <color key="backgroundColor" red="1" green="0.98823529480000005" blue="0.97254902119999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <color key="strokeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </backgroundConfiguration>
-                                    <fontDescription key="titleFontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="37"/>
+                                    <fontDescription key="titleFontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="45"/>
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -132,63 +115,63 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bN4-xs-ebf">
-                                <rect key="frame" x="287" y="155" width="50" height="50"/>
+                                <rect key="frame" x="295" y="143" width="55" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="O">
+                                <buttonConfiguration key="configuration" style="filled" title="O" cornerStyle="large">
                                     <backgroundConfiguration key="background">
                                         <color key="backgroundColor" red="1" green="0.98823529480000005" blue="0.97254902119999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <color key="strokeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </backgroundConfiguration>
-                                    <fontDescription key="titleFontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="37"/>
+                                    <fontDescription key="titleFontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="45"/>
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="startGameButton:" destination="EhD-Y7-U0s" eventType="touchUpInside" id="AZG-Kf-D2W"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Phe-sP-ui0">
-                                <rect key="frame" x="55" y="213" width="50" height="50"/>
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Phe-sP-ui0">
+                                <rect key="frame" x="43" y="206" width="55" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="T">
+                                <buttonConfiguration key="configuration" style="filled" title="T" cornerStyle="large">
                                     <backgroundConfiguration key="background">
                                         <color key="backgroundColor" red="1" green="0.98823529480000005" blue="0.97254902119999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <color key="strokeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </backgroundConfiguration>
-                                    <fontDescription key="titleFontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="37"/>
+                                    <fontDescription key="titleFontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="45"/>
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="startGameButton:" destination="EhD-Y7-U0s" eventType="touchUpInside" id="GGu-Yq-nfL"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Kj-Ke-F5a">
-                                <rect key="frame" x="113" y="213" width="50" height="50"/>
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Kj-Ke-F5a">
+                                <rect key="frame" x="106" y="206" width="55" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Y">
+                                <buttonConfiguration key="configuration" style="filled" title="Y" cornerStyle="large">
                                     <backgroundConfiguration key="background">
                                         <color key="backgroundColor" red="1" green="0.98823529480000005" blue="0.97254902119999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <color key="strokeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </backgroundConfiguration>
-                                    <fontDescription key="titleFontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="37"/>
+                                    <fontDescription key="titleFontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="45"/>
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="startGameButton:" destination="EhD-Y7-U0s" eventType="touchUpInside" id="EJ3-EA-PAN"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aJY-2s-ccI">
-                                <rect key="frame" x="171" y="213" width="50" height="50"/>
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aJY-2s-ccI">
+                                <rect key="frame" x="169" y="206" width="55" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="P">
+                                <buttonConfiguration key="configuration" style="filled" title="P" cornerStyle="large">
                                     <backgroundConfiguration key="background">
                                         <color key="backgroundColor" red="1" green="0.98823529480000005" blue="0.97254902119999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <color key="strokeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </backgroundConfiguration>
-                                    <fontDescription key="titleFontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="37"/>
+                                    <fontDescription key="titleFontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="45"/>
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -196,15 +179,15 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Bq-dd-Yli">
-                                <rect key="frame" x="229" y="213" width="50" height="50"/>
+                                <rect key="frame" x="232" y="206" width="55" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="E">
+                                <buttonConfiguration key="configuration" style="filled" title="E" cornerStyle="large">
                                     <backgroundConfiguration key="background">
                                         <color key="backgroundColor" red="1" green="0.98823529480000005" blue="0.97254902119999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <color key="strokeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </backgroundConfiguration>
-                                    <fontDescription key="titleFontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="37"/>
+                                    <fontDescription key="titleFontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="45"/>
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -212,10 +195,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bk0-Xd-Zi2">
-                                <rect key="frame" x="287" y="213" width="50" height="50"/>
+                                <rect key="frame" x="295" y="206" width="55" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled">
+                                <buttonConfiguration key="configuration" style="filled" cornerStyle="large">
                                     <backgroundConfiguration key="background" image="Pencil">
                                         <color key="backgroundColor" red="1" green="0.98823529480000005" blue="0.97254902119999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <color key="strokeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -223,6 +206,23 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="startGameButton:" destination="EhD-Y7-U0s" eventType="touchUpInside" id="Qbt-dh-uSt"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gth-nR-Eam">
+                                <rect key="frame" x="91" y="638" width="210" height="85"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Info" cornerStyle="large">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" red="1" green="0.98823529480000005" blue="0.97254902119999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="strokeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </backgroundConfiguration>
+                                    <fontDescription key="titleFontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="45"/>
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="infoButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ix8-Y7-Vk5"/>
+                                    <action selector="startGameButton:" destination="EhD-Y7-U0s" eventType="touchUpInside" id="6EA-WF-gVa"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -268,9 +268,13 @@
                                 <rect key="frame" x="123" y="369" width="138" height="85"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Start">
+                                <buttonConfiguration key="configuration" style="filled" title="Start" cornerStyle="large">
+                                    <backgroundConfiguration key="background">
+                                        <color key="strokeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </backgroundConfiguration>
                                     <fontDescription key="titleFontDescription" type="system" pointSize="37"/>
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseBackgroundColor" red="1" green="0.98823529480000005" blue="0.97254902119999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="startGameButton:" destination="EhD-Y7-U0s" eventType="touchUpInside" id="jaC-jT-RWx"/>
@@ -285,7 +289,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="F6h-gN-Fbl"/>
-                        <color key="backgroundColor" red="0.78004264831542969" green="0.93891710042953491" blue="0.76419425010681152" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.64705884459999996" green="0.70588237050000002" blue="0.83529412749999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="F6h-gN-Fbl" firstAttribute="bottom" secondItem="a9E-ch-cxz" secondAttribute="bottom" constant="205" id="05k-nt-3b7"/>
                             <constraint firstItem="v0d-lR-Oi0" firstAttribute="leading" secondItem="9sK-ip-ygE" secondAttribute="leading" constant="10" id="0lv-Hz-dlE"/>
@@ -423,7 +427,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="BLb-Re-oJ4">
-                                <rect key="frame" x="0.0" y="100" width="393" height="752"/>
+                                <rect key="frame" x="0.0" y="203" width="393" height="615"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="sectionIndexBackgroundColor" red="0.77647060160000003" green="0.84313726430000002" blue="0.73725497719999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
@@ -438,7 +442,7 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Highscores" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2tt-UC-H4s">
-                                <rect key="frame" x="20" y="0.0" width="353" height="61"/>
+                                <rect key="frame" x="20" y="103" width="353" height="61"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="61" id="AIg-V6-GkW"/>
                                 </constraints>
@@ -483,6 +487,7 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Home"/>
                                 <connections>
                                     <action selector="homeButton:" destination="H5y-uZ-P2G" eventType="touchUpInside" id="WEz-K4-4SH"/>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" identifier="homeScreenSegue" modalPresentationStyle="fullScreen" id="tP2-2k-BgH"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WYb-U4-DVr">
@@ -534,8 +539,23 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Play again"/>
                                 <connections>
                                     <action selector="playAgainButton:" destination="H5y-uZ-P2G" eventType="touchUpInside" id="XWc-zr-Rsk"/>
+                                    <segue destination="Lts-ko-VMa" kind="presentation" identifier="toGamePlayAgainSegue" modalPresentationStyle="fullScreen" id="2cp-SK-ov9"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time's up!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oNu-2F-p6X">
+                                <rect key="frame" x="30" y="81" width="332" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="38"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current highscore: 20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ow6-gE-Jfu">
+                                <rect key="frame" x="51" y="461" width="299" height="101"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7Fb-bh-kA8"/>
                         <color key="backgroundColor" red="0.7718997597694397" green="0.94452601671218872" blue="0.77248853445053101" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -551,7 +571,12 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+
+        <segue reference="2LA-OA-puT"/>
         <segue reference="GWq-TG-rYm"/>
+        <segue reference="2cp-SK-ov9"/>
+        <segue reference="tP2-2k-BgH"/>
+
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.77647060160000003" green="0.84313726430000002" blue="0.73725497719999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>
