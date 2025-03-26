@@ -16,10 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gth-nR-Eam">
                                 <rect key="frame" x="101" y="659" width="190" height="90"/>
-
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Info">
@@ -66,7 +64,7 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="startGameButton:" destination="EhD-Y7-U0s" eventType="touchUpInside" id="52K-bb-PCZ"/>
-                                    <segue destination="EhD-Y7-U0s" kind="show" id="Wiz-6t-9qd"/>
+                                    <segue destination="EhD-Y7-U0s" kind="presentation" modalPresentationStyle="fullScreen" id="Wiz-6t-9qd"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6tJ-Mi-DDF">
@@ -264,7 +262,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v0d-lR-Oi0">
-                                <rect key="frame" x="10" y="592" width="373" height="216"/>
+                                <rect key="frame" x="10" y="626" width="373" height="216"/>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JB0-f7-eB2">
                                 <rect key="frame" x="123" y="369" width="138" height="85"/>
@@ -276,21 +274,15 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="startGameButton:" destination="EhD-Y7-U0s" eventType="touchUpInside" id="jaC-jT-RWx"/>
-                                    <segue destination="Lts-ko-VMa" kind="show" identifier="GameVCSegue" id="vHy-kU-mg6"/>
+                                    <segue destination="Lts-ko-VMa" kind="presentation" identifier="GameVCSegue" modalPresentationStyle="fullScreen" id="vHy-kU-mg6"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose difficulty:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a9E-ch-cxz">
-                                <rect key="frame" x="13" y="584.33333333333337" width="367" height="28.666666666666629"/>
+                                <rect key="frame" x="13" y="618.33333333333337" width="367" height="28.666666666666629"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qeA-2k-Rtr">
-                                <rect key="frame" x="155" y="168" width="75" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="F6h-gN-Fbl"/>
                         <color key="backgroundColor" red="0.78004264831542969" green="0.93891710042953491" blue="0.76419425010681152" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -303,9 +295,7 @@
                             <constraint firstItem="F6h-gN-Fbl" firstAttribute="bottom" secondItem="v0d-lR-Oi0" secondAttribute="bottom" constant="10" id="yUM-O4-eTW"/>
                         </constraints>
                     </view>
-
                     <navigationItem key="navigationItem" id="10U-XU-DSZ"/>
-
                     <connections>
                         <outlet property="difficultyLevelPicker" destination="v0d-lR-Oi0" id="udJ-x9-O5R"/>
                     </connections>
@@ -319,17 +309,15 @@
             <objects>
                 <viewController id="Lts-ko-VMa" customClass="GameplayViewController" customModule="TurboType" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ege-5W-YwJ">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="5FD-G5-7V6">
-
-                                <rect key="frame" x="20" y="123" width="353" height="4"/>
+                                <rect key="frame" x="20" y="20" width="353" height="4"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </progressView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:24" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s59-bZ-thh">
-                                <rect key="frame" x="20" y="135" width="126" height="21"/>
-
+                                <rect key="frame" x="20" y="32" width="126" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="126" id="gvn-sH-2hy"/>
                                 </constraints>
@@ -338,25 +326,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="39 points" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2jD-CB-jN7">
-
-                                <rect key="frame" x="305" y="135" width="72" height="21"/>
-
+                                <rect key="frame" x="305" y="32" width="72" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="helloworld" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Q4-ev-sMa">
-
-                                <rect key="frame" x="20" y="267" width="353" height="50"/>
-
+                                <rect key="frame" x="20" y="301" width="353" height="50"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="42"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type word here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TjC-50-B72">
-
-                                <rect key="frame" x="20" y="376" width="353" height="34"/>
-
+                                <rect key="frame" x="20" y="410" width="353" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -392,7 +374,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                 <connections>
-                                    <segue destination="H5y-uZ-P2G" kind="show" identifier="toEndGame" id="2LA-OA-puT"/>
+                                    <segue destination="H5y-uZ-P2G" kind="presentation" identifier="toEndGame" modalPresentationStyle="fullScreen" id="2LA-OA-puT"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -440,8 +422,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="BLb-Re-oJ4">
-                                <rect key="frame" x="0.0" y="188" width="393" height="654"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="BLb-Re-oJ4">
+                                <rect key="frame" x="0.0" y="100" width="393" height="752"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="sectionIndexBackgroundColor" red="0.77647060160000003" green="0.84313726430000002" blue="0.73725497719999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
@@ -455,10 +437,12 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Highscores" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r9j-j9-ScO">
-                                <rect key="frame" x="20" y="151" width="353" height="37"/>
-                                <color key="backgroundColor" red="0.77647060160000003" green="0.84313726430000002" blue="0.73725497719999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Highscores" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2tt-UC-H4s">
+                                <rect key="frame" x="20" y="0.0" width="353" height="61"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="61" id="AIg-V6-GkW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="42"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -466,13 +450,13 @@
                         <viewLayoutGuide key="safeArea" id="MdC-uZ-rjN"/>
                         <color key="backgroundColor" red="0.77647060160000003" green="0.84313726430000002" blue="0.73725497719999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="r9j-j9-ScO" firstAttribute="top" secondItem="MdC-uZ-rjN" secondAttribute="top" constant="92" id="AOj-dQ-70r"/>
-                            <constraint firstItem="BLb-Re-oJ4" firstAttribute="top" secondItem="MdC-uZ-rjN" secondAttribute="top" constant="100" id="AvA-bL-Z7K"/>
-                            <constraint firstItem="BLb-Re-oJ4" firstAttribute="leading" secondItem="MdC-uZ-rjN" secondAttribute="leading" id="Lhy-60-Lu4"/>
-                            <constraint firstItem="MdC-uZ-rjN" firstAttribute="trailing" secondItem="r9j-j9-ScO" secondAttribute="trailing" constant="20" id="W6r-kJ-hgU"/>
-                            <constraint firstItem="MdC-uZ-rjN" firstAttribute="bottom" secondItem="BLb-Re-oJ4" secondAttribute="bottom" id="Wkg-J3-yPX"/>
-                            <constraint firstItem="MdC-uZ-rjN" firstAttribute="trailing" secondItem="BLb-Re-oJ4" secondAttribute="trailing" id="v86-yk-tlz"/>
-                            <constraint firstItem="r9j-j9-ScO" firstAttribute="leading" secondItem="MdC-uZ-rjN" secondAttribute="leading" constant="20" id="wGr-3B-lyr"/>
+                            <constraint firstItem="2tt-UC-H4s" firstAttribute="leading" secondItem="MdC-uZ-rjN" secondAttribute="leading" constant="20" id="2XP-Fx-3HC"/>
+                            <constraint firstItem="BLb-Re-oJ4" firstAttribute="leading" secondItem="MdC-uZ-rjN" secondAttribute="leading" id="9aR-X7-fW0"/>
+                            <constraint firstItem="BLb-Re-oJ4" firstAttribute="bottom" secondItem="MdC-uZ-rjN" secondAttribute="bottom" id="Yum-3T-ZaR"/>
+                            <constraint firstItem="BLb-Re-oJ4" firstAttribute="top" secondItem="2tt-UC-H4s" secondAttribute="bottom" constant="39" id="fIh-WG-rm0"/>
+                            <constraint firstItem="2tt-UC-H4s" firstAttribute="centerX" secondItem="2Zo-8h-4Hf" secondAttribute="centerX" id="kaD-gj-KEp"/>
+                            <constraint firstItem="2tt-UC-H4s" firstAttribute="centerX" secondItem="BLb-Re-oJ4" secondAttribute="centerX" id="ppz-8y-bJY"/>
+                            <constraint firstItem="2tt-UC-H4s" firstAttribute="top" secondItem="MdC-uZ-rjN" secondAttribute="top" id="qyj-8I-XZ3"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="DBn-9v-4ud"/>
@@ -489,7 +473,7 @@
             <objects>
                 <viewController id="H5y-uZ-P2G" customClass="EndgameViewController" customModule="TurboType" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vMD-Gj-emk">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XSz-Hq-Xsc">
@@ -508,6 +492,7 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Highscore"/>
                                 <connections>
                                     <action selector="highscoreButton:" destination="H5y-uZ-P2G" eventType="touchUpInside" id="PB5-EH-JcL"/>
+                                    <segue destination="uWy-s8-xvA" kind="presentation" modalPresentationStyle="fullScreen" id="GWq-TG-rYm"/>
                                 </connections>
                             </button>
                             <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9LC-h5-pMK">
@@ -565,11 +550,9 @@
             <point key="canvasLocation" x="1985.4961832061067" y="726.76056338028172"/>
         </scene>
     </scenes>
-
     <inferredMetricsTieBreakers>
-        <segue reference="pFs-0o-JVJ"/>
+        <segue reference="GWq-TG-rYm"/>
     </inferredMetricsTieBreakers>
-
     <color key="tintColor" red="0.77647060160000003" green="0.84313726430000002" blue="0.73725497719999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>
         <image name="Pencil" width="24" height="24"/>
