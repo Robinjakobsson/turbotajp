@@ -137,7 +137,7 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
         }
         
         let okAction = UIAlertAction(title: "OK", style: .default) { _ in
-            self.performSegue(withIdentifier: "toHighScore", sender: self)
+            self.performSegue(withIdentifier: "toEndGame", sender: self)
             
         }
         alertController.addAction(okAction)
