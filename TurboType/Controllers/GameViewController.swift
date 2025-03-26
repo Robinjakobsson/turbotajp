@@ -60,6 +60,7 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
         let newRandomWord = randomWordGenerator()
         currentWord = newRandomWord
         elapsedTime += 2.5
+        points -= 5
         
         updateUI()
     }
@@ -171,7 +172,10 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
     
     func saveToUserDefaults() {
         let userDefaults = UserDefaults.standard
-        let scores = userDefaults.array(forKey: "highScores") as? [Int] ?? []
+        var scores = userDefaults.array(forKey: "highScores") as? [Int] ?? []
+        
+        scores.append(points)
+        scores.sort(by: >)
         
         userDefaults.set(scores, forKey: "highScores")
     }
