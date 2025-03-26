@@ -8,22 +8,47 @@
 import UIKit
 
 class HighscoreViewController: UIViewController {
+    
+    var scores : [Int] = []
 
+    @IBOutlet weak var tableView: UITableView!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        loadUserDefaults()
+        
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func loadUserDefaults() {
+        let userDefaults = UserDefaults.standard
+        scores = userDefaults.array(forKey: "highScores") as? [Int] ?? []
+        tableView.reloadData()
     }
-    */
-
 }
+
+extension HighscoreViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        scores.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        
+        let score = scores[indexPath.row]
+        cell.textLabel?.text = String(score)
+        
+        return cell
+    }
+    
+    
+}
+
+

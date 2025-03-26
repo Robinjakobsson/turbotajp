@@ -9,11 +9,9 @@ import UIKit
 
 
 class GameplayViewController: UIViewController, UITextFieldDelegate{
-    
     var wordManager = WordManager()
+
     
-
-
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var passButton: UIButton!
     @IBOutlet weak var textField: UITextField!
@@ -37,10 +35,6 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
         
         currentWord = randomWordGenerator()
         wordLabel.text = currentWord.word
-
-        
-    
-
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -64,8 +58,8 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
     
     @IBAction func passButtonPressed(_ sender: Any) {
         let newRandomWord = randomWordGenerator()
-        
         currentWord = newRandomWord
+        elapsedTime += 2.5
         
         updateUI()
     }
@@ -145,13 +139,14 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
     
     func alertBox() {
         let alertController = UIAlertController(title: "Times Up!", message: "You managed to score a whooping total of \(points) points!", preferredStyle: .alert)
+            saveToUserDefaults()
         
         let tryAgainAction = UIAlertAction(title: "Try again?", style: .default) { _ in
             self.resetGame()
         }
         
         let okAction = UIAlertAction(title: "OK", style: .default) { _ in
-            self.performSegue(withIdentifier: "toHighScore", sender: self)
+            self.performSegue(withIdentifier: "toEndGame", sender: self)
             
         }
         alertController.addAction(okAction)
@@ -172,5 +167,12 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
         
         timer?.invalidate()
         startTimer()
+    }
+    
+    func saveToUserDefaults() {
+        let userDefaults = UserDefaults.standard
+        let scores = userDefaults.array(forKey: "highScores") as? [Int] ?? []
+        
+        userDefaults.set(scores, forKey: "highScores")
     }
 }
