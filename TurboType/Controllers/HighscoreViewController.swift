@@ -43,7 +43,6 @@ extension HighscoreViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
         let score = scores[indexPath.row]
-        
         cell.textLabel?.text = String(score)
         
         return cell

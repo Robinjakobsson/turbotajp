@@ -58,8 +58,8 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
     
     @IBAction func passButtonPressed(_ sender: Any) {
         let newRandomWord = randomWordGenerator()
-        
         currentWord = newRandomWord
+        elapsedTime += 2.5
         
         updateUI()
     }
