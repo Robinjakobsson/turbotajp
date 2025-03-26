@@ -28,7 +28,7 @@ class HighscoreViewController: UIViewController {
     
     
     func loadUserDefaults() {
-        var userDefaults = UserDefaults.standard
+        let userDefaults = UserDefaults.standard
         scores = userDefaults.array(forKey: "highScores") as? [Int] ?? []
         tableView.reloadData()
     }
@@ -44,7 +44,7 @@ extension HighscoreViewController: UITableViewDataSource, UITableViewDelegate {
         
         let score = scores[indexPath.row]
         
-        
+        cell.textLabel?.text = String(score)
         
         return cell
     }
