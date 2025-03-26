@@ -52,8 +52,6 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
             }
             
             checkInput(input: inputText, word: currentWord)
-            //currentWord = randomWordGenerator()
-            //wordLabel.text = currentWord.word
             
             textField.text = ""
             
@@ -127,7 +125,9 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
         if trimmedInput.lowercased() == trimmedAnswer.lowercased() {
             points += 10
             print("Rätt svar!")
+
             self.view.backgroundColor = UIColor.fromHex("#82DE60")
+
             
         } else {
             print("Fel svar")
@@ -137,10 +137,10 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.view.backgroundColor = UIColor.fromHex("#A1B5D8")
-            
             self.currentWord = self.randomWordGenerator()
             self.updateUI()
         }
+
     }
     
     func alertBox() {
