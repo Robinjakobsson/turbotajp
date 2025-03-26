@@ -29,12 +29,18 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         textField.returnKeyType = .done
         textField.delegate = self
         
         currentWord = randomWordGenerator()
         wordLabel.text = currentWord.word
+        
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        resetGame()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -85,8 +91,21 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
             if self.elapsedTime >= self.totalTime! {
                 timer.invalidate()
                 
-                self.alertBox()
+                self.performSegue(withIdentifier: "toEndGame", sender: nil)
+                
+               // self.alertBox()
             }
+        }
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "toEndGame" {
+            
+            let destinationVC = segue.destination as? EndgameViewController
+            
+            destinationVC?.totalTime = totalTime
         }
         
     }
@@ -148,6 +167,8 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
         
         let okAction = UIAlertAction(title: "OK", style: .default) { _ in
             self.performSegue(withIdentifier: "toEndGame", sender: self)
+            
+        
             
         }
         alertController.addAction(okAction)
