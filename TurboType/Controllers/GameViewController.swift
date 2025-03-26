@@ -131,6 +131,7 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
     
     func alertBox() {
         let alertController = UIAlertController(title: "Times Up!", message: "You managed to score a whooping total of \(points) points!", preferredStyle: .alert)
+            saveToUserDefaults()
         
         let tryAgainAction = UIAlertAction(title: "Try again?", style: .default) { _ in
             self.resetGame()
@@ -158,5 +159,12 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
         
         timer?.invalidate()
         startTimer()
+    }
+    
+    func saveToUserDefaults() {
+        var userDefaults = UserDefaults.standard
+        var scores = userDefaults.array(forKey: "highScores") as? [Int] ?? []
+        
+        userDefaults.set(scores, forKey: "highScores")
     }
 }
