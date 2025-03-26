@@ -11,7 +11,6 @@ class EndgameViewController: UIViewController {
 
     @IBOutlet weak var scoreTextLabel: UILabel!
     
-    
     var toGamePlayAgainSegue = "toGamePlayAgainSegue"
     
     var totalTime : Double?
@@ -23,26 +22,19 @@ class EndgameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-       
+        if let totalScore = score {
+            let scoreString = String(totalScore)
+            scoreTextLabel.text = scoreString
+        }
     }
     
-    
-    
-    
-
     @IBAction func playAgainButton(_ sender: UIButton) {
-        
-        
     }
-    
     
     @IBAction func homeButton(_ sender: UIButton) {
-        
     }
     
-    
     @IBAction func highscoreButton(_ sender: UIButton) {
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -53,7 +45,5 @@ class EndgameViewController: UIViewController {
             
             destinationVC?.totalTime = totalTime
         }
-        
     }
-
 }

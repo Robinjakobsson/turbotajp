@@ -88,13 +88,14 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
         
         timer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { timer in
             self.elapsedTime -= interval
-            
+        
             let progress = 1.0 - Float(self.elapsedTime / self.totalTime!)
             self.timerView.setProgress(progress, animated: true)
             self.updateUI()
             
             if self.elapsedTime <= 5 {
                 self.timerView.progressTintColor = UIColor.red
+                self.startBlinking()
             } else {
                 self.timerView.progressTintColor = UIColor.black
             }
@@ -113,6 +114,13 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
         
     }
     
+    func startBlinking() {
+        UIView.animate(withDuration: 0.3, delay: 0, options: [.autoreverse, .repeat], animations: {
+            self.timerView.alpha = 0
+
+        })
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "toEndGame" {
@@ -120,6 +128,7 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
             let destinationVC = segue.destination as? EndgameViewController
             
             destinationVC?.totalTime = totalTime
+            destinationVC?.score = points
         }
         
     }
@@ -133,8 +142,10 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
         startButton.isHidden = true
         passButton.isHidden = false
         
+        let minutes = Int(elapsedTime) / 60
+        let seconds = Int(elapsedTime) % 60
         
-        secondsLeftLabel.text = String(elapsedTime)
+        secondsLeftLabel.text = String(format: "%02d:%02d", minutes, seconds)
         pointsLabel.text = String(points)
         wordLabel.text = currentWord.word
     }
