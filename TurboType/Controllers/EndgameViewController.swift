@@ -9,6 +9,10 @@ import UIKit
 
 class EndgameViewController: UIViewController {
 
+    @IBOutlet weak var scoreTextLabel: UILabel!
+    
+    var score : Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -16,6 +20,22 @@ class EndgameViewController: UIViewController {
     }
     
 
+    @IBAction func playAgainButton(_ sender: UIButton) {
+        
+    }
+    
+    
+    @IBAction func homeButton(_ sender: UIButton) {
+        
+    }
+    
+    
+    @IBAction func highscoreButton(_ sender: UIButton) {
+        
+    }
+    
+    
+    
     /*
     // MARK: - Navigation
 
