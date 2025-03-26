@@ -21,6 +21,8 @@ class HighscoreViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
+        tableView.register(MyTableViewCell.nib(), forCellReuseIdentifier: MyTableViewCell.identifier)
+        
         loadUserDefaults()
         
         
@@ -40,10 +42,24 @@ extension HighscoreViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: MyTableViewCell.identifier, for: indexPath) as! MyTableViewCell
         
         let score = scores[indexPath.row]
-        cell.textLabel?.text = String(score)
+        cell.customImageView.image = UIImage(systemName: "crown")
+        cell.customLabel.text = String("\(indexPath.row) : \(score)")
+        
+        switch indexPath.row {
+        case 0:
+            cell.customImageView.image = UIImage(named: "Crown")
+        case 1:
+            cell.customImageView.image = UIImage(named: "Crown.silver")
+        case 2:
+            cell.customImageView.image = UIImage(named: "Crown.copper")
+            
+        default:
+            cell.customImageView.image = UIImage(systemName: "person")
+        }
+
         
         return cell
     }

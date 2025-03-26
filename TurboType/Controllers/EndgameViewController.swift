@@ -10,6 +10,7 @@ import UIKit
 class EndgameViewController: UIViewController {
 
     @IBOutlet weak var scoreTextLabel: UILabel!
+
     
     
     var toGamePlayAgainSegue = "toGamePlayAgainSegue"
@@ -17,7 +18,7 @@ class EndgameViewController: UIViewController {
     var totalTime : Double?
     
     var homeScreenSegue = "homeScreenSegue"
-    
+   
     var score : Int?
     
     override func viewDidLoad() {
@@ -26,10 +27,6 @@ class EndgameViewController: UIViewController {
        
     }
     
-    
-    
-    
-
     @IBAction func playAgainButton(_ sender: UIButton) {
         
         
@@ -45,6 +42,7 @@ class EndgameViewController: UIViewController {
         
     }
     
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == toGamePlayAgainSegue {
@@ -55,5 +53,4 @@ class EndgameViewController: UIViewController {
         }
         
     }
-
 }

@@ -12,7 +12,6 @@ import AVFoundation
 class GameplayViewController: UIViewController, UITextFieldDelegate{
     var wordManager = WordManager()
     var audioPlayer: AVAudioPlayer?
-
     
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var passButton: UIButton!
@@ -21,8 +20,8 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var pointsLabel: UILabel!
     @IBOutlet weak var secondsLeftLabel: UILabel!
     @IBOutlet weak var timerView: UIProgressView!
-  
     
+
     var points : Int = 0
     var totalTime : Double?
     var elapsedTime : Double = 0.0
@@ -62,7 +61,7 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
         }
         return true
     }
-
+    
     
     @IBAction func passButtonPressed(_ sender: Any) {
         let newRandomWord = randomWordGenerator()
@@ -153,6 +152,7 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
         if trimmedInput.lowercased() == trimmedAnswer.lowercased() {
             points += 10
             print("Rätt svar!")
+
             self.view.backgroundColor = UIColor.fromHex("#82DE60")
             playSound(forResource: "correct")
 
@@ -169,12 +169,12 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
             self.currentWord = self.randomWordGenerator()
             self.updateUI()
         }
-
+        
     }
     
     func alertBox() {
         let alertController = UIAlertController(title: "Times Up!", message: "You managed to score a whooping total of \(points) points!", preferredStyle: .alert)
-            saveToUserDefaults()
+        saveToUserDefaults()
         
         let tryAgainAction = UIAlertAction(title: "Try again?", style: .default) { _ in
             self.resetGame()
@@ -211,6 +211,10 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
         
         scores.append(points)
         scores.sort(by: >)
+        
+        if scores.count > 10 {
+            scores.removeLast()
+        }
         
         userDefaults.set(scores, forKey: "highScores")
     }
