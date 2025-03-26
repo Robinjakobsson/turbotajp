@@ -170,8 +170,8 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
     }
     
     func saveToUserDefaults() {
-        var userDefaults = UserDefaults.standard
-        var scores = userDefaults.array(forKey: "highScores") as? [Int] ?? []
+        let userDefaults = UserDefaults.standard
+        let scores = userDefaults.array(forKey: "highScores") as? [Int] ?? []
         
         userDefaults.set(scores, forKey: "highScores")
     }
