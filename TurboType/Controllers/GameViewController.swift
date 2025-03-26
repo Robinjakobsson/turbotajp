@@ -6,10 +6,12 @@
 //
 //hej
 import UIKit
+import AVFoundation
 
 
 class GameplayViewController: UIViewController, UITextFieldDelegate{
     var wordManager = WordManager()
+    var audioPlayer: AVAudioPlayer?
 
     
     @IBOutlet weak var startButton: UIButton!
@@ -120,14 +122,15 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
         if trimmedInput.lowercased() == trimmedAnswer.lowercased() {
             points += 10
             print("Rätt svar!")
-
             self.view.backgroundColor = UIColor.fromHex("#82DE60")
+            playSound(forResource: "correct")
 
             
         } else {
             print("Fel svar")
             elapsedTime += 5
             self.view.backgroundColor = UIColor.fromHex("#ED696B")
+            playSound(forResource: "incorrect")
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
@@ -178,5 +181,16 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
         scores.sort(by: >)
         
         userDefaults.set(scores, forKey: "highScores")
+    }
+    
+    func playSound(forResource resource: String) {
+        if let url = Bundle.main.url(forResource: resource, withExtension: "mp3") {
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: url)
+                audioPlayer?.play()
+            } catch {
+                print("Kunde inte spela upp ljudet")
+            }
+        }
     }
 }
