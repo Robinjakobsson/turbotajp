@@ -9,11 +9,9 @@ import UIKit
 
 
 class GameplayViewController: UIViewController, UITextFieldDelegate{
-    
     var wordManager = WordManager()
+
     
-
-
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var passButton: UIButton!
     @IBOutlet weak var textField: UITextField!
@@ -37,10 +35,6 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
         
         currentWord = randomWordGenerator()
         wordLabel.text = currentWord.word
-
-        
-    
-
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
