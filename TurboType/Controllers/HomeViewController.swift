@@ -12,18 +12,79 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func infoButtonTapped(_ sender: UIButton) {
+        alertBox()
     }
-    */
-
+    
+    func alertBox() {
+        let titleText = "Info\n"
+        let messageText = """
+        Information om spelet\n
+        Easy: Hej\n
+        Medium: Hello\n
+        Hard: Tja
+        """
+        
+        let alertController = UIAlertController(title: titleText, message: messageText, preferredStyle: .alert)
+        
+        alertController.view.subviews.first?.subviews.first?.subviews.first?.applyStyle(
+            backgroundColor: .fromHex("#738290"),
+            borderColor: .black,
+            borderWidth: 2,
+            cornerRadius: 10
+        )
+        
+        alertController.setAttributedText(title: titleText, message: messageText, color: .black)
+               
+        let okAction = UIAlertAction(title: "OK", style: .default)
+        okAction.setValue(UIColor.white, forKey: "titleTextColor")
+        alertController.addAction(okAction)
+               
+        present(alertController, animated: true , completion: nil)
+        
+    }
 }
+
+extension UIView {
+    func applyStyle(backgroundColor: UIColor, borderColor: UIColor, borderWidth: CGFloat, cornerRadius: CGFloat) {
+        self.backgroundColor = backgroundColor
+        self.layer.borderColor = borderColor.cgColor
+        self.layer.borderWidth = borderWidth
+        self.layer.cornerRadius = cornerRadius
+    }
+}
+
+
+extension UIAlertController {
+    func setAttributedText(title: String, message: String, color: UIColor) {
+        let attributes = [NSAttributedString.Key.foregroundColor: color]
+        self.setValue(NSAttributedString(string: title, attributes: attributes), forKey: "attributedTitle")
+        self.setValue(NSAttributedString(string: message, attributes: attributes), forKey: "attributedMessage")
+    }
+}
+
+extension UIColor {
+    static func fromHex(_ hex: String) -> UIColor {
+        var hexSanitized = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+
+        if hexSanitized.hasPrefix("#") {
+            hexSanitized.remove(at: hexSanitized.startIndex)
+        }
+
+        guard hexSanitized.count == 6 else { return UIColor.gray }
+
+        var rgb: UInt64 = 0
+        Scanner(string: hexSanitized).scanHexInt64(&rgb)
+
+        return UIColor(
+            red: CGFloat((rgb >> 16) & 0xFF) / 255.0,
+            green: CGFloat((rgb >> 8) & 0xFF) / 255.0,
+            blue: CGFloat(rgb & 0xFF) / 255.0,
+            alpha: 1.0
+        )
+    }
+}
+//C2D8B9
+//A1B5D8
