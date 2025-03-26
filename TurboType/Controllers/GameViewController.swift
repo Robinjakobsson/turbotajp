@@ -65,7 +65,7 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
     @IBAction func passButtonPressed(_ sender: Any) {
         let newRandomWord = randomWordGenerator()
         currentWord = newRandomWord
-        elapsedTime += 2.5
+        elapsedTime -= 2.5
         points -= 5
         
         updateUI()
@@ -82,13 +82,18 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
     func startTimer() {
         let interval = 0.1
         
+        self.elapsedTime = totalTime!
+        
         timer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { timer in
-            self.elapsedTime += interval
-            let progress = Float(self.elapsedTime / self.totalTime!)
+            self.elapsedTime -= interval
+            
+            let progress = 1.0 - Float(self.elapsedTime / self.totalTime!)
             self.timerView.setProgress(progress, animated: true)
             self.updateUI()
             
-            if self.elapsedTime >= self.totalTime! {
+            if self.elapsedTime <= 0 {
+                
+                self.elapsedTime = 0
                 timer.invalidate()
                 
                 self.performSegue(withIdentifier: "toEndGame", sender: nil)
@@ -145,7 +150,7 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
             
         } else {
             print("Fel svar")
-            elapsedTime += 5
+            elapsedTime -= 5
             self.view.backgroundColor = UIColor.fromHex("#ED696B")
         }
         
@@ -168,8 +173,6 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
         let okAction = UIAlertAction(title: "OK", style: .default) { _ in
             self.performSegue(withIdentifier: "toEndGame", sender: self)
             
-        
-            
         }
         alertController.addAction(okAction)
         alertController.addAction(tryAgainAction)
@@ -180,6 +183,7 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
     func resetGame() {
         points = 0
         elapsedTime = 0.0
+        elapsedTime = totalTime!
         
         pointsLabel.text = "0"
         timerView.setProgress(0.0, animated: true)
