@@ -91,6 +91,13 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
             self.timerView.setProgress(progress, animated: true)
             self.updateUI()
             
+            if self.elapsedTime <= 5 {
+                self.timerView.progressTintColor = UIColor.red
+            } else {
+                self.timerView.progressTintColor = UIColor.black
+            }
+            
+            
             if self.elapsedTime <= 0 {
                 
                 self.elapsedTime = 0
