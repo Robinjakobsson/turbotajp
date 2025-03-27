@@ -25,7 +25,7 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var secondsLeftLabel: UILabel!
     @IBOutlet weak var timerView: UIProgressView!
     
-
+    var language : String?
     var points : Int = 0
     var totalTime : Double?
     var elapsedTime : Double = 0.0
@@ -148,7 +148,15 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
     }
     
     func randomWordGenerator() -> Word {
-        return wordManager.words.randomElement() ?? Word(word: "Funka ej", answer: "Funkar inte")
+        if language == "English" {
+            return wordManager.englishWords.randomElement() ?? Word(word: "Funka ej", answer: "Funkar inte")
+            
+        } else if language == "Spanish" {
+            return wordManager.spanishWords.randomElement() ?? Word(word: "funka ej spanska", answer: "funkar ej")
+        }
+        else {
+            return wordManager.germanWords.randomElement() ?? Word(word: "Funka ej tyska", answer: "hello world")
+        }
     }
     
     func checkInput(input : String, word: Word) {

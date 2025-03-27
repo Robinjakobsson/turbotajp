@@ -14,7 +14,8 @@ class GameSettingsViewController: UIViewController, UIPickerViewDataSource, UIPi
     @IBOutlet weak var difficultyLevelPicker: UIPickerView!
     
     var difficulty = ["Easy", "Medium", "Hard"]
-    
+    var language = ["German","Spanish","English"]
+    var chosenLanguage : String!
     var timer : Double = 0.0
     
     let gameSegue = "GameVCSegue"
@@ -32,22 +33,32 @@ class GameSettingsViewController: UIViewController, UIPickerViewDataSource, UIPi
     
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
+        return 2
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        
-        return difficulty.count
+        if component == 0 {
+            return difficulty.count
+        } else {
+            return language.count
+        }
         
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return difficulty[row]
+        if component == 0 {
+            return difficulty[row]
+        } else {
+            return language[row]
+        }
     }
     
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
+        
+        chosenLanguage = language[row]
+        print("\(chosenLanguage) selected")
         //let choosenDifficulty = difficulty[row]
         //Just a comment.
         
@@ -72,6 +83,7 @@ class GameSettingsViewController: UIViewController, UIPickerViewDataSource, UIPi
             }
             
             destinationVC?.totalTime = timer
+            destinationVC?.language = chosenLanguage
             
             SoundManager.shared.stopMusic()
         }
