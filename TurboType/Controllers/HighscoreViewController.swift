@@ -22,7 +22,6 @@ class HighscoreViewController: UIViewController {
         tableView.delegate = self
         
         tableView.register(MyTableViewCell.nib(), forCellReuseIdentifier: MyTableViewCell.identifier)
-        
         loadUserDefaults()
         
         

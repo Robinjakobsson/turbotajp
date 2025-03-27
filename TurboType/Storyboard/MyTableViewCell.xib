@@ -30,6 +30,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <color key="backgroundColor" red="0.64705884459999996" green="0.70588237050000002" blue="0.83529412749999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                 <constraints>
                     <constraint firstItem="w4J-nE-Hhm" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="1Fp-Nw-yGK"/>
                     <constraint firstItem="0zo-Kc-nlK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="6UI-KE-bmR"/>
@@ -40,6 +41,7 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" red="1" green="0.98823529480000005" blue="0.97254902119999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <connections>
                 <outlet property="customImageView" destination="0zo-Kc-nlK" id="xxw-el-ikk"/>
                 <outlet property="customLabel" destination="w4J-nE-Hhm" id="gV4-lh-Ji5"/>
