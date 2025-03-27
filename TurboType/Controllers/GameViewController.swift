@@ -16,6 +16,7 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
 
 
     
+    @IBOutlet weak var hiddenWord: UILabel!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var passButton: UIButton!
     @IBOutlet weak var textField: UITextField!
@@ -71,18 +72,9 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
         let newRandomWord = randomWordGenerator()
         currentWord = newRandomWord
         elapsedTime -= 2.5
-        
         updateUI()
     }
-    
-    
-    @IBAction func startButton(_ sender: Any) {
-        updateUI()
-        textField.becomeFirstResponder()
-        startTimer()
-    }
-    
-    
+   
     func startTimer() {
         let interval = 0.1
         
@@ -145,7 +137,6 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
         pointsLabel.isHidden = false
         secondsLeftLabel.isHidden = false
         timerView.isHidden = false
-        startButton.isHidden = true
         passButton.isHidden = false
         
         let minutes = Int(elapsedTime) / 60
@@ -167,6 +158,8 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
         print("\(trimmedInput)")
         print("trimmed answer:\(trimmedAnswer)")
         
+        
+        
         if trimmedInput.lowercased() == trimmedAnswer.lowercased() {
             points += 10
             print("Rätt svar!")
@@ -176,6 +169,8 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
 
             
         } else {
+            hiddenWord.text = word.answer
+            hiddenWord.isHidden = false
             print("Fel svar")
             elapsedTime -= 5
             self.view.backgroundColor = UIColor.fromHex("#ED696B")
@@ -185,30 +180,15 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.view.backgroundColor = UIColor.fromHex("#A1B5D8")
             self.currentWord = self.randomWordGenerator()
+            self.hiddenWord.isHidden = true
             self.updateUI()
         }
         
     }
     
-    func alertBox() {
-        let alertController = UIAlertController(title: "Times Up!", message: "You managed to score a whooping total of \(points) points!", preferredStyle: .alert)
-        saveToUserDefaults()
-        
-        let tryAgainAction = UIAlertAction(title: "Try again?", style: .default) { _ in
-            self.resetGame()
-        }
-        
-        let okAction = UIAlertAction(title: "OK", style: .default) { _ in
-            self.performSegue(withIdentifier: "toEndGame", sender: self)
-            
-        }
-        alertController.addAction(okAction)
-        alertController.addAction(tryAgainAction)
-        
-        present(alertController,animated: true, completion: nil)
-    }
     
     func resetGame() {
+        hiddenWord.isHidden = true
         points = 0
         elapsedTime = 0.0
         elapsedTime = totalTime!

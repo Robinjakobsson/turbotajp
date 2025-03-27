@@ -10,14 +10,10 @@ import AVFoundation
 
 class HomeViewController: UIViewController {
     
-    
-    var backgroundSound: AVAudioPlayer?
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        backgroundMusic(forResource: "backgroundMusic")
-
+        SoundManager.shared.playBackgroundMusic(forResource: "backgroundMusic")
     }
     
     @IBAction func infoButtonTapped(_ sender: UIButton) {
@@ -43,28 +39,17 @@ class HomeViewController: UIViewController {
         )
         
         alertController.setAttributedText(title: titleText, message: messageText, color: .black)
-               
+        
         let okAction = UIAlertAction(title: "OK", style: .default)
         okAction.setValue(UIColor.black, forKey: "titleTextColor")
         alertController.addAction(okAction)
-               
+        
         present(alertController, animated: true , completion: nil)
         
     }
     
-    func backgroundMusic(forResource resource: String) {
-        if let url = Bundle.main.url(forResource: resource, withExtension: "mp3") {
-            do {
-                backgroundSound = try AVAudioPlayer(contentsOf: url)
-                backgroundSound?.numberOfLoops = -1
-                backgroundSound?.play()
-            } catch {
-                print("Kunde inte spela upp ljudet")
-            }
-        }
-    }
 }
-
+    
 extension UIView {
     func applyStyle(backgroundColor: UIColor, borderColor: UIColor, borderWidth: CGFloat, cornerRadius: CGFloat) {
         self.backgroundColor = backgroundColor
@@ -73,7 +58,6 @@ extension UIView {
         self.layer.cornerRadius = cornerRadius
     }
 }
-
 
 extension UIAlertController {
     func setAttributedText(title: String, message: String, color: UIColor) {
@@ -104,5 +88,4 @@ extension UIColor {
         )
     }
 }
-//C2D8B9
-//A1B5D8
+
