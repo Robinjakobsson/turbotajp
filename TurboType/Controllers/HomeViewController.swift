@@ -13,7 +13,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        SoundManager.shared.playerBackgroundMusic(forResource: "backgroundMusic")
+        SoundManager.shared.playBackgroundMusic(forResource: "backgroundMusic")
     }
     
     @IBAction func infoButtonTapped(_ sender: UIButton) {

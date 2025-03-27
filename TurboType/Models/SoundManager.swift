@@ -11,20 +11,32 @@ class SoundManager {
     static let shared = SoundManager()
     
     var player: AVAudioPlayer?
+    var isMuted: Bool = false
     
     private init() {}
     
-    func playerBackgroundMusic(forResource resource: String) {
+    func playBackgroundMusic(forResource resource: String) {
         if player == nil {
             if let url = Bundle.main.url(forResource: resource, withExtension: "mp3") {
                 do {
                     player = try AVAudioPlayer(contentsOf: url)
                     player?.numberOfLoops = -1
-                    player?.play()
+                    if !isMuted {
+                        player?.play()
+                    }
                 } catch {
                     print("Error playing background music:")
                 }
             }
+        }
+    }
+    
+    func toggleMute() {
+        isMuted.toggle()
+        if isMuted {
+            player?.pause()
+        } else {
+            player?.play()
         }
     }
     
