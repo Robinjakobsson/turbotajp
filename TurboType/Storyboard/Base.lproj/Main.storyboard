@@ -373,6 +373,13 @@
                                     <segue destination="H5y-uZ-P2G" kind="presentation" identifier="toEndGame" modalPresentationStyle="fullScreen" id="2LA-OA-puT"/>
                                 </connections>
                             </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ev-Z1-29L">
+                                <rect key="frame" x="20" y="181" width="353" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="42"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lJa-nl-WRF"/>
                         <color key="backgroundColor" red="0.64705884459999996" green="0.70588237050000002" blue="0.83529412749999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -397,6 +404,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Zve-pm-8KQ"/>
                     <connections>
+                        <outlet property="hiddenWord" destination="8ev-Z1-29L" id="UsQ-qx-t5l"/>
                         <outlet property="passButton" destination="PzE-vG-rsc" id="2dI-Dy-aaM"/>
                         <outlet property="pointsLabel" destination="2jD-CB-jN7" id="SNN-gt-pBS"/>
                         <outlet property="secondsLeftLabel" destination="s59-bZ-thh" id="z5L-8H-Pos"/>
@@ -407,7 +415,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dn1-dA-jZc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1705" y="15"/>
+            <point key="canvasLocation" x="1704.5801526717557" y="14.788732394366198"/>
         </scene>
         <!--Highscore View Controller-->
         <scene sceneID="iGm-nx-HQz">
@@ -420,7 +428,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="BLb-Re-oJ4">
                                 <rect key="frame" x="20" y="214" width="353" height="476"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <color key="sectionIndexBackgroundColor" red="0.64705884459999996" green="0.70588237050000002" blue="0.83529412749999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="sectionIndexBackgroundColor" red="0.71807108048190527" green="0.7787757847653054" blue="0.92872196255154638" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="Bj1-Bt-Tgw">
                                         <rect key="frame" x="0.0" y="50" width="353" height="43.666667938232422"/>
@@ -429,8 +437,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="353" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderRadius">
+                                                <integer key="value" value="30"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </tableViewCell>
                                 </prototypes>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Highscores" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2tt-UC-H4s">
                                 <rect key="frame" x="16" y="104" width="361" height="61"/>
@@ -598,6 +616,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="2LA-OA-puT"/>
         <segue reference="GWq-TG-rYm"/>
         <segue reference="2cp-SK-ov9"/>
         <segue reference="S8Y-84-bjx"/>
