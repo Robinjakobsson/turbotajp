@@ -109,6 +109,8 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
                 self.elapsedTime = 0
                 timer.invalidate()
                 
+                self.saveToUserDefaults()
+                
                 self.stopBackgroundMusic()
                 
                 self.performSegue(withIdentifier: "toEndGame", sender: nil)
