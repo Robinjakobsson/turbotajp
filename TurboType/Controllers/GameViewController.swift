@@ -14,6 +14,7 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
     var soundEffectPlayer: AVAudioPlayer?
     var backgroudMusicPlayer: AVAudioPlayer?
 
+
     
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var passButton: UIButton!
@@ -22,8 +23,8 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var pointsLabel: UILabel!
     @IBOutlet weak var secondsLeftLabel: UILabel!
     @IBOutlet weak var timerView: UIProgressView!
-  
     
+
     var points : Int = 0
     var totalTime : Double?
     var elapsedTime : Double = 0.0
@@ -64,7 +65,7 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
         }
         return true
     }
-
+    
     
     @IBAction func passButtonPressed(_ sender: Any) {
         let newRandomWord = randomWordGenerator()
@@ -90,13 +91,14 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
         
         timer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { timer in
             self.elapsedTime -= interval
-            
+        
             let progress = 1.0 - Float(self.elapsedTime / self.totalTime!)
             self.timerView.setProgress(progress, animated: true)
             self.updateUI()
             
             if self.elapsedTime <= 5 {
                 self.timerView.progressTintColor = UIColor.red
+                self.startBlinking()
             } else {
                 self.timerView.progressTintColor = UIColor.black
             }
@@ -117,6 +119,13 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
         
     }
     
+    func startBlinking() {
+        UIView.animate(withDuration: 0.3, delay: 0, options: [.autoreverse, .repeat], animations: {
+            self.timerView.alpha = 0
+
+        })
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "toEndGame" {
@@ -124,6 +133,7 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
             let destinationVC = segue.destination as? EndgameViewController
             
             destinationVC?.totalTime = totalTime
+            destinationVC?.score = points
         }
         
     }
@@ -137,8 +147,10 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
         startButton.isHidden = true
         passButton.isHidden = false
         
+        let minutes = Int(elapsedTime) / 60
+        let seconds = Int(elapsedTime) % 60
         
-        secondsLeftLabel.text = String(elapsedTime)
+        secondsLeftLabel.text = String(format: "%02d:%02d", minutes, seconds)
         pointsLabel.text = String(points)
         wordLabel.text = currentWord.word
     }
@@ -157,6 +169,7 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
         if trimmedInput.lowercased() == trimmedAnswer.lowercased() {
             points += 10
             print("Rätt svar!")
+
             self.view.backgroundColor = UIColor.fromHex("#82DE60")
             playSoundEffect(forResource: "correct")
 
@@ -173,12 +186,12 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
             self.currentWord = self.randomWordGenerator()
             self.updateUI()
         }
-
+        
     }
     
     func alertBox() {
         let alertController = UIAlertController(title: "Times Up!", message: "You managed to score a whooping total of \(points) points!", preferredStyle: .alert)
-            saveToUserDefaults()
+        saveToUserDefaults()
         
         let tryAgainAction = UIAlertAction(title: "Try again?", style: .default) { _ in
             self.resetGame()
@@ -215,6 +228,10 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
         
         scores.append(points)
         scores.sort(by: >)
+        
+        if scores.count > 10 {
+            scores.removeLast()
+        }
         
         userDefaults.set(scores, forKey: "highScores")
     }

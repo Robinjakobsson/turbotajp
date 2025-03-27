@@ -11,44 +11,37 @@ import AVFoundation
 class EndgameViewController: UIViewController {
 
     @IBOutlet weak var scoreTextLabel: UILabel!
-    
     var endGameSound: AVAudioPlayer?
-    
     var toGamePlayAgainSegue = "toGamePlayAgainSegue"
-    
     var totalTime : Double?
-    
     var homeScreenSegue = "homeScreenSegue"
-    
     var score : Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+
         endGameMusic(forResource: "endGame")
         showConfetti()
        
-    }
-    
-    
-    
-    
 
-    @IBAction func playAgainButton(_ sender: UIButton) {
-        
-        
+        if let totalScore = score {
+            let scoreString = String(totalScore)
+            scoreTextLabel.text = scoreString
+        }
+
     }
     
+    @IBAction func playAgainButton(_ sender: UIButton) {
+    }
     
     @IBAction func homeButton(_ sender: UIButton) {
-        
     }
-    
     
     @IBAction func highscoreButton(_ sender: UIButton) {
-        
     }
     
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == toGamePlayAgainSegue {
@@ -57,8 +50,8 @@ class EndgameViewController: UIViewController {
             
             destinationVC?.totalTime = totalTime
         }
-        
     }
+
     
     func endGameMusic(forResource resource: String) {
         if let url = Bundle.main.url(forResource: resource, withExtension: "mp3") {
@@ -103,5 +96,6 @@ class EndgameViewController: UIViewController {
             confettiLayer.birthRate = 0
         }
     }
+
 
 }
