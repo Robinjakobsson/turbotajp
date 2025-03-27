@@ -6,11 +6,17 @@
 //
 
 import UIKit
+import AVFoundation
 
 class HomeViewController: UIViewController {
+    
+    
+    var backgroundSound: AVAudioPlayer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        backgroundMusic(forResource: "backgroundMusic")
 
     }
     
@@ -30,7 +36,7 @@ class HomeViewController: UIViewController {
         let alertController = UIAlertController(title: titleText, message: messageText, preferredStyle: .alert)
         
         alertController.view.subviews.first?.subviews.first?.subviews.first?.applyStyle(
-            backgroundColor: .fromHex("#738290"),
+            backgroundColor: .fromHex("#E2E8ED"),
             borderColor: .black,
             borderWidth: 2,
             cornerRadius: 10
@@ -39,11 +45,23 @@ class HomeViewController: UIViewController {
         alertController.setAttributedText(title: titleText, message: messageText, color: .black)
                
         let okAction = UIAlertAction(title: "OK", style: .default)
-        okAction.setValue(UIColor.white, forKey: "titleTextColor")
+        okAction.setValue(UIColor.black, forKey: "titleTextColor")
         alertController.addAction(okAction)
                
         present(alertController, animated: true , completion: nil)
         
+    }
+    
+    func backgroundMusic(forResource resource: String) {
+        if let url = Bundle.main.url(forResource: resource, withExtension: "mp3") {
+            do {
+                backgroundSound = try AVAudioPlayer(contentsOf: url)
+                backgroundSound?.numberOfLoops = -1
+                backgroundSound?.play()
+            } catch {
+                print("Kunde inte spela upp ljudet")
+            }
+        }
     }
 }
 

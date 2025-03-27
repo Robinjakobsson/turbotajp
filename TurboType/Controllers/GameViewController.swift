@@ -11,7 +11,8 @@ import AVFoundation
 
 class GameplayViewController: UIViewController, UITextFieldDelegate{
     var wordManager = WordManager()
-    var audioPlayer: AVAudioPlayer?
+    var soundEffectPlayer: AVAudioPlayer?
+    var backgroudMusicPlayer: AVAudioPlayer?
 
     
     @IBOutlet weak var startButton: UIButton!
@@ -37,6 +38,7 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
         
         currentWord = randomWordGenerator()
         wordLabel.text = currentWord.word
+        playBackgroundMusic()
         
     }
     
@@ -105,6 +107,8 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
                 self.elapsedTime = 0
                 timer.invalidate()
                 
+                self.stopBackgroundMusic()
+                
                 self.performSegue(withIdentifier: "toEndGame", sender: nil)
                 
                // self.alertBox()
@@ -154,14 +158,14 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
             points += 10
             print("Rätt svar!")
             self.view.backgroundColor = UIColor.fromHex("#82DE60")
-            playSound(forResource: "correct")
+            playSoundEffect(forResource: "correct")
 
             
         } else {
             print("Fel svar")
             elapsedTime -= 5
             self.view.backgroundColor = UIColor.fromHex("#ED696B")
-            playSound(forResource: "incorrect")
+            playSoundEffect(forResource: "incorrect")
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
@@ -215,14 +219,31 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
         userDefaults.set(scores, forKey: "highScores")
     }
     
-    func playSound(forResource resource: String) {
+    func playSoundEffect(forResource resource: String) {
         if let url = Bundle.main.url(forResource: resource, withExtension: "mp3") {
             do {
-                audioPlayer = try AVAudioPlayer(contentsOf: url)
-                audioPlayer?.play()
+                soundEffectPlayer = try AVAudioPlayer(contentsOf: url)
+                soundEffectPlayer?.play()
             } catch {
                 print("Kunde inte spela upp ljudet")
             }
         }
+    }
+    
+    func playBackgroundMusic() {
+        if let url = Bundle.main.url(forResource: "gameMusic", withExtension: "mp3") {
+            do {
+                backgroudMusicPlayer = try AVAudioPlayer(contentsOf: url)
+                backgroudMusicPlayer?.volume = 0.7
+                backgroudMusicPlayer?.numberOfLoops = -1
+                backgroudMusicPlayer?.play()
+            } catch {
+                print("Kunde inte spela musik")
+            }
+        }
+    }
+    
+    func stopBackgroundMusic() {
+        backgroudMusicPlayer?.stop()
     }
 }

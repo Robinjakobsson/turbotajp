@@ -72,6 +72,10 @@ class GameSettingsViewController: UIViewController, UIPickerViewDataSource, UIPi
             }
             
             destinationVC?.totalTime = timer
+            
+            if let homeVC = self.presentingViewController as? HomeViewController {
+                homeVC.backgroundSound?.stop()
+            }
         }
         
     }
