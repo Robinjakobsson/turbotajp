@@ -30,7 +30,7 @@ class HomeViewController: UIViewController {
         let alertController = UIAlertController(title: titleText, message: messageText, preferredStyle: .alert)
         
         alertController.view.subviews.first?.subviews.first?.subviews.first?.applyStyle(
-            backgroundColor: .fromHex("#738290"),
+            backgroundColor: .fromHex("#E2E8ED"),
             borderColor: .black,
             borderWidth: 2,
             cornerRadius: 10
