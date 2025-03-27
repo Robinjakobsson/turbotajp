@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -47,7 +48,7 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="startGameButton:" destination="EhD-Y7-U0s" eventType="touchUpInside" id="52K-bb-PCZ"/>
-                                    <segue destination="EhD-Y7-U0s" kind="presentation" modalPresentationStyle="fullScreen" id="Wiz-6t-9qd"/>
+                                    <segue destination="EhD-Y7-U0s" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" id="Wiz-6t-9qd"/>
                                 </connections>
                             </button>
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6tJ-Mi-DDF">
@@ -98,7 +99,7 @@
                                     <action selector="startGameButton:" destination="EhD-Y7-U0s" eventType="touchUpInside" id="ZvW-kg-Feg"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pcu-d7-quR">
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pcu-d7-quR">
                                 <rect key="frame" x="232" y="143" width="55" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
@@ -114,7 +115,7 @@
                                     <action selector="startGameButton:" destination="EhD-Y7-U0s" eventType="touchUpInside" id="7CI-PS-BQO"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bN4-xs-ebf">
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bN4-xs-ebf">
                                 <rect key="frame" x="295" y="143" width="55" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
@@ -178,7 +179,7 @@
                                     <action selector="startGameButton:" destination="EhD-Y7-U0s" eventType="touchUpInside" id="cOt-xW-07N"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Bq-dd-Yli">
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Bq-dd-Yli">
                                 <rect key="frame" x="232" y="206" width="55" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
@@ -194,13 +195,14 @@
                                     <action selector="startGameButton:" destination="EhD-Y7-U0s" eventType="touchUpInside" id="RFE-5z-iD0"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bk0-Xd-Zi2">
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bk0-Xd-Zi2">
                                 <rect key="frame" x="295" y="206" width="55" height="55"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" cornerStyle="large">
-                                    <backgroundConfiguration key="background" image="Pencil">
+                                    <backgroundConfiguration key="background">
                                         <color key="backgroundColor" red="1" green="0.98823529480000005" blue="0.97254902119999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <imageReference key="image" image="pencil" catalog="system" symbolScale="large" variableValue="0.0"/>
                                         <color key="strokeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </backgroundConfiguration>
                                 </buttonConfiguration>
@@ -262,17 +264,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v0d-lR-Oi0">
-                                <rect key="frame" x="10" y="626" width="373" height="216"/>
+                                <rect key="frame" x="10" y="606" width="373" height="216"/>
                             </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose difficulty:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a9E-ch-cxz">
+                                <rect key="frame" x="13" y="595.33333333333337" width="367" height="46.666666666666629"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="29"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JB0-f7-eB2">
-                                <rect key="frame" x="123" y="369" width="138" height="85"/>
+                                <rect key="frame" x="121" y="369" width="150" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Start" cornerStyle="large">
                                     <backgroundConfiguration key="background">
                                         <color key="strokeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </backgroundConfiguration>
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="37"/>
+                                    <fontDescription key="titleFontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="55"/>
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="baseBackgroundColor" red="1" green="0.98823529480000005" blue="0.97254902119999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
@@ -281,22 +289,16 @@
                                     <segue destination="Lts-ko-VMa" kind="presentation" identifier="GameVCSegue" modalPresentationStyle="fullScreen" id="vHy-kU-mg6"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose difficulty:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a9E-ch-cxz">
-                                <rect key="frame" x="13" y="618.33333333333337" width="367" height="28.666666666666629"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="F6h-gN-Fbl"/>
                         <color key="backgroundColor" red="0.64705884459999996" green="0.70588237050000002" blue="0.83529412749999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="F6h-gN-Fbl" firstAttribute="bottom" secondItem="a9E-ch-cxz" secondAttribute="bottom" constant="205" id="05k-nt-3b7"/>
+                            <constraint firstItem="F6h-gN-Fbl" firstAttribute="bottom" secondItem="a9E-ch-cxz" secondAttribute="bottom" constant="210" id="05k-nt-3b7"/>
                             <constraint firstItem="v0d-lR-Oi0" firstAttribute="leading" secondItem="9sK-ip-ygE" secondAttribute="leading" constant="10" id="0lv-Hz-dlE"/>
                             <constraint firstItem="a9E-ch-cxz" firstAttribute="leading" secondItem="F6h-gN-Fbl" secondAttribute="leading" constant="13" id="3zz-py-Ath"/>
                             <constraint firstItem="F6h-gN-Fbl" firstAttribute="trailing" secondItem="v0d-lR-Oi0" secondAttribute="trailing" constant="10" id="gLG-j9-Y5s"/>
                             <constraint firstItem="F6h-gN-Fbl" firstAttribute="trailing" secondItem="a9E-ch-cxz" secondAttribute="trailing" constant="13" id="sT2-64-G1M"/>
-                            <constraint firstItem="F6h-gN-Fbl" firstAttribute="bottom" secondItem="v0d-lR-Oi0" secondAttribute="bottom" constant="10" id="yUM-O4-eTW"/>
+                            <constraint firstItem="F6h-gN-Fbl" firstAttribute="bottom" secondItem="v0d-lR-Oi0" secondAttribute="bottom" constant="30" id="yUM-O4-eTW"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="10U-XU-DSZ"/>
@@ -348,11 +350,15 @@
                             </textField>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PzE-vG-rsc">
                                 <rect key="frame" x="166" y="480" width="60" height="35"/>
-                                <color key="backgroundColor" red="0.77647060160000003" green="0.84313726430000002" blue="0.73725497719999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.64705884459999996" green="0.70588237050000002" blue="0.83529412749999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="tintColor" red="1" green="0.98823529480000005" blue="0.97254902119999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Pass">
+                                <buttonConfiguration key="configuration" style="filled" title="Pass" cornerStyle="large">
+                                    <backgroundConfiguration key="background">
+                                        <color key="strokeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </backgroundConfiguration>
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseBackgroundColor" red="1" green="0.98823529480000005" blue="0.97254902119999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="passButtonPressed:" destination="Lts-ko-VMa" eventType="touchUpInside" id="68O-J2-nzF"/>
@@ -383,7 +389,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lJa-nl-WRF"/>
-                        <color key="backgroundColor" red="0.77647060160000003" green="0.84313726430000002" blue="0.73725497719999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.64705884459999996" green="0.70588237050000002" blue="0.83529412749999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="5FD-G5-7V6" firstAttribute="centerX" secondItem="ege-5W-YwJ" secondAttribute="centerX" id="22u-4q-9Np"/>
                             <constraint firstItem="lJa-nl-WRF" firstAttribute="trailing" secondItem="TjC-50-B72" secondAttribute="trailing" constant="20" id="3fe-Fw-Bep"/>
@@ -426,10 +432,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="BLb-Re-oJ4">
-                                <rect key="frame" x="0.0" y="100" width="393" height="568"/>
+
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="BLb-Re-oJ4">
+                                <rect key="frame" x="0.0" y="100" width="393" height="752"/>
+
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <color key="sectionIndexBackgroundColor" red="0.77647060160000003" green="0.84313726430000002" blue="0.73725497719999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="sectionIndexBackgroundColor" red="0.64705884459999996" green="0.70588237050000002" blue="0.83529412749999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="Bj1-Bt-Tgw">
                                         <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
@@ -462,7 +470,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="MdC-uZ-rjN"/>
-                        <color key="backgroundColor" red="0.77647060160000003" green="0.84313726430000002" blue="0.73725497719999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.64705884459999996" green="0.70588237050000002" blue="0.83529412749999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="2tt-UC-H4s" firstAttribute="leading" secondItem="MdC-uZ-rjN" secondAttribute="leading" constant="20" id="2XP-Fx-3HC"/>
                             <constraint firstItem="BLb-Re-oJ4" firstAttribute="leading" secondItem="MdC-uZ-rjN" secondAttribute="leading" id="9aR-X7-fW0"/>
@@ -490,41 +498,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XSz-Hq-Xsc">
-                                <rect key="frame" x="67" y="695" width="120" height="49"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Home"/>
-                                <connections>
-                                    <action selector="homeButton:" destination="H5y-uZ-P2G" eventType="touchUpInside" id="WEz-K4-4SH"/>
-                                    <segue destination="BYZ-38-t0r" kind="presentation" identifier="homeScreenSegue" modalPresentationStyle="fullScreen" id="tP2-2k-BgH"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WYb-U4-DVr">
-                                <rect key="frame" x="217" y="695" width="118" height="49"/>
+                                <rect key="frame" x="220" y="720" width="130" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Highscore"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Highscore" cornerStyle="large">
+                                    <backgroundConfiguration key="background">
+                                        <color key="strokeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </backgroundConfiguration>
+                                    <fontDescription key="titleFontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="25"/>
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseBackgroundColor" red="1" green="0.98823529480000005" blue="0.97254902119999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="highscoreButton:" destination="H5y-uZ-P2G" eventType="touchUpInside" id="PB5-EH-JcL"/>
                                     <segue destination="uWy-s8-xvA" kind="presentation" identifier="toHighScore" modalPresentationStyle="fullScreen" id="GWq-TG-rYm"/>
                                 </connections>
                             </button>
                             <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9LC-h5-pMK">
-                                <rect key="frame" x="76" y="149" width="240" height="240"/>
+                                <rect key="frame" x="76" y="213" width="240" height="240"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VYr-PU-wZ0">
                                         <rect key="frame" x="32" y="32" width="172" height="49"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                        <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="31"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Scz-Dk-yP1">
                                         <rect key="frame" x="39" y="77" width="163" height="129"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="71"/>
+                                        <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="71"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -543,32 +548,56 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0zy-hZ-r7r">
-                                <rect key="frame" x="100" y="594" width="193" height="70"/>
+                                <rect key="frame" x="100" y="596" width="193" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Play again"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Play again" cornerStyle="large">
+                                    <backgroundConfiguration key="background">
+                                        <color key="strokeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </backgroundConfiguration>
+                                    <fontDescription key="titleFontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="41"/>
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseBackgroundColor" red="1" green="0.98823529480000005" blue="0.97254902119999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="playAgainButton:" destination="H5y-uZ-P2G" eventType="touchUpInside" id="XWc-zr-Rsk"/>
                                     <segue destination="Lts-ko-VMa" kind="presentation" identifier="toGamePlayAgainSegue" modalPresentationStyle="fullScreen" id="2cp-SK-ov9"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time's up!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oNu-2F-p6X">
-                                <rect key="frame" x="30" y="81" width="332" height="53"/>
+                                <rect key="frame" x="30" y="117" width="332" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="38"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current highscore: 20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ow6-gE-Jfu">
-                                <rect key="frame" x="51" y="461" width="299" height="101"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XSz-Hq-Xsc">
+                                <rect key="frame" x="51" y="720" width="130" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Home" cornerStyle="large">
+                                    <backgroundConfiguration key="background">
+                                        <color key="strokeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </backgroundConfiguration>
+                                    <fontDescription key="titleFontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="25"/>
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseBackgroundColor" red="1" green="0.98823529480000005" blue="0.97254902119999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="homeButton:" destination="H5y-uZ-P2G" eventType="touchUpInside" id="WEz-K4-4SH"/>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" identifier="homeScreenSegue" modalPresentationStyle="fullScreen" id="tP2-2k-BgH"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current highscore:  20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ow6-gE-Jfu">
+                                <rect key="frame" x="47" y="474" width="299" height="101"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7Fb-bh-kA8"/>
-                        <color key="backgroundColor" red="0.7718997597694397" green="0.94452601671218872" blue="0.77248853445053101" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.64705884459999996" green="0.70588237050000002" blue="0.83529412749999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <navigationItem key="navigationItem" id="Wqd-IZ-2K4"/>
                     <connections>
@@ -581,13 +610,15 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="pFs-0o-JVJ"/>
-        <segue reference="2cp-SK-ov9"/>
-        <segue reference="S8Y-84-bjx"/>
+
+        <segue reference="GWq-TG-rYm"/>
+        <segue reference="vHy-kU-mg6"/>
+        <segue reference="tP2-2k-BgH"/>
+
     </inferredMetricsTieBreakers>
-    <color key="tintColor" red="0.77647060160000003" green="0.84313726430000002" blue="0.73725497719999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
-        <image name="Pencil" width="24" height="24"/>
+        <image name="pencil" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
