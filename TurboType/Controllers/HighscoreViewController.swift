@@ -9,7 +9,7 @@ import UIKit
 
 class HighscoreViewController: UIViewController {
     
-    var scores : [Int] = []
+    var scores : [HighScore] = []
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -22,15 +22,23 @@ class HighscoreViewController: UIViewController {
         tableView.delegate = self
         
         tableView.register(MyTableViewCell.nib(), forCellReuseIdentifier: MyTableViewCell.identifier)
-        loadUserDefaults()
+        getHighScores()
         
         
     }
     
     
-    func loadUserDefaults() {
+    func getHighScores() {
         let userDefaults = UserDefaults.standard
-        scores = userDefaults.array(forKey: "highScores") as? [Int] ?? []
+        let highScores = userDefaults.array(forKey: "highScores") as? [[String: Any]] ?? []
+        
+       scores = highScores.map { score in
+            HighScore(
+                points: score["points"] as? Int ?? 0,
+                language: score["language"] as? String ?? "Unknown",
+                difficulty: score["difficulty"] as? String ?? "Unknown"
+            )
+        }
         tableView.reloadData()
     }
 }
@@ -42,10 +50,9 @@ extension HighscoreViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MyTableViewCell.identifier, for: indexPath) as! MyTableViewCell
-        
         let score = scores[indexPath.row]
         cell.customImageView.image = UIImage(systemName: "crown")
-        cell.customLabel.text = String("\(indexPath.row) : \(score)")
+        cell.customLabel.text = "\(indexPath.row + 1). \(score.points) - \(score.language) - \(score.difficulty)"
         
         switch indexPath.row {
         case 0:
