@@ -17,6 +17,8 @@ class EndgameViewController: UIViewController {
     var homeScreenSegue = "homeScreenSegue"
     var score : Int?
     
+    @IBOutlet weak var currentHighscore: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,8 +30,21 @@ class EndgameViewController: UIViewController {
         if let totalScore = score {
             let scoreString = String(totalScore)
             scoreTextLabel.text = scoreString
+            
+            let userDefaults = UserDefaults.standard
+            if let scores = userDefaults.array(forKey: "highScores") as? [Int], !scores.isEmpty {
+                let highscore = scores[0]
+                
+                if totalScore == highscore {
+                    
+                    currentHighscore.text = "New highscore: \(highscore)"
+                    
+                } else {
+                    currentHighscore.text = "Current highscore: \(highscore)"
+                    print("current highscore: \(highscore)")
+                }
+            }
         }
-
     }
     
     @IBAction func playAgainButton(_ sender: UIButton) {

@@ -14,7 +14,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="TurboType" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TKQ-9w-SKV">
@@ -429,13 +429,11 @@
             <objects>
                 <viewController id="uWy-s8-xvA" customClass="HighscoreViewController" customModule="TurboType" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2Zo-8h-4Hf">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="BLb-Re-oJ4">
                                 <rect key="frame" x="0.0" y="100" width="393" height="752"/>
-
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="sectionIndexBackgroundColor" red="0.64705884459999996" green="0.70588237050000002" blue="0.83529412749999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
@@ -601,6 +599,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Wqd-IZ-2K4"/>
                     <connections>
+                        <outlet property="currentHighscore" destination="Ow6-gE-Jfu" id="MYS-it-gCj"/>
                         <outlet property="scoreTextLabel" destination="Scz-Dk-yP1" id="JHd-AQ-4JL"/>
                     </connections>
                 </viewController>
@@ -610,11 +609,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-
         <segue reference="GWq-TG-rYm"/>
-        <segue reference="vHy-kU-mg6"/>
+        <segue reference="2cp-SK-ov9"/>
         <segue reference="tP2-2k-BgH"/>
-
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>

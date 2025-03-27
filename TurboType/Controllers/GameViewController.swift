@@ -71,7 +71,6 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
         let newRandomWord = randomWordGenerator()
         currentWord = newRandomWord
         elapsedTime -= 2.5
-        points -= 5
         
         updateUI()
     }
