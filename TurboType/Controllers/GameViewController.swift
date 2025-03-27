@@ -237,7 +237,8 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
             return wordManager.spanishWords.randomElement() ?? Word(word: "funka ej spanska", answer: "funkar ej")
         } else if language == "French" {
             return wordManager.frenchWords.randomElement() ?? Word(word: "Funka ej fRANKSA", answer: "ss")
-            
+        } else if language == "Rövarspråket" {
+            return wordManager.rovarspraket.randomElement() ?? Word(word: "Funka ej rovarspraket", answer: "ss")
         } else if language == "Dothraki" {
             return wordManager.dothrakiWords.randomElement() ?? Word(word: "Funka ej dothraki", answer: "ss")
         } else if language == "Valyrian" {
