@@ -72,15 +72,9 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
         let newRandomWord = randomWordGenerator()
         currentWord = newRandomWord
         elapsedTime -= 2.5
-        points -= 5
-        if points  <= 0 {
-            points = 0
-        }
         updateUI()
     }
-    
-    
-
+   
     func startTimer() {
         let interval = 0.1
         
