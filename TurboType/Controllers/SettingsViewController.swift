@@ -14,7 +14,7 @@ class GameSettingsViewController: UIViewController, UIPickerViewDataSource, UIPi
     @IBOutlet weak var difficultyLevelPicker: UIPickerView!
     
     var difficulty = ["Easy", "Medium", "Hard"]
-    var language = ["German","Spanish","English"]
+    var language = ["German","Spanish","English","French","Valyrian","Dothraki"]
     var chosenLanguage : String!
     var timer : Double = 0.0
     

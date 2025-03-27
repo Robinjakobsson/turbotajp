@@ -153,6 +153,13 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
             
         } else if language == "Spanish" {
             return wordManager.spanishWords.randomElement() ?? Word(word: "funka ej spanska", answer: "funkar ej")
+        } else if language == "French" {
+            return wordManager.frenchWords.randomElement() ?? Word(word: "Funka ej fRANKSA", answer: "ss")
+            
+        } else if language == "Dothraki" {
+            return wordManager.dothrakiWords.randomElement() ?? Word(word: "Funka ej dothraki", answer: "ss")
+        } else if language == "Valyrian" {
+            return wordManager.valyrianWords.randomElement() ?? Word(word: "Funka ej valyrian", answer: "ss")
         }
         else {
             return wordManager.germanWords.randomElement() ?? Word(word: "Funka ej tyska", answer: "hello world")
