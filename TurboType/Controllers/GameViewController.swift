@@ -24,7 +24,7 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var pointsLabel: UILabel!
     @IBOutlet weak var secondsLeftLabel: UILabel!
     @IBOutlet weak var timerView: UIProgressView!
-    
+    var difficulty : String?
     var language : String?
     var points : Int = 0
     var totalTime : Double?
@@ -161,9 +161,10 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
         } else if language == "Valyrian" {
             return wordManager.valyrianWords.randomElement() ?? Word(word: "Funka ej valyrian", answer: "ss")
         }
-        else {
+        else if language == "German" {
             return wordManager.germanWords.randomElement() ?? Word(word: "Funka ej tyska", answer: "hello world")
         }
+        return wordManager.englishWords.randomElement() ?? Word(word: "asd", answer: "asd")
     }
     
     func checkInput(input : String, word: Word) {
@@ -220,16 +221,23 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
     
     func saveToUserDefaults() {
         let userDefaults = UserDefaults.standard
-        var scores = userDefaults.array(forKey: "highScores") as? [Int] ?? []
         
-        scores.append(points)
-        scores.sort(by: >)
+        var scores = userDefaults.array(forKey: "highScores") as? [[String: Any]] ?? []
+        
+        let newScore: [String: Any] = [
+            "points": points,
+            "language": language ?? "Unknown",
+            "difficulty": difficulty ?? "Unknown"
+        ]
+     
+        scores.append(newScore)
+        scores.sort { ($0["points"] as? Int ?? 0) > ($1["points"] as? Int ?? 0) }
         
         if scores.count > 10 {
             scores.removeLast()
         }
-        
         userDefaults.set(scores, forKey: "highScores")
+        print("Saved high scores: \(scores)")
     }
     
     func playSoundEffect(forResource resource: String) {

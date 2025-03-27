@@ -58,7 +58,7 @@ class GameSettingsViewController: UIViewController, UIPickerViewDataSource, UIPi
         
         
         chosenLanguage = language[row]
-        print("\(chosenLanguage) selected")
+        print("\(String(describing: chosenLanguage)) selected")
         //let choosenDifficulty = difficulty[row]
         //Just a comment.
         
@@ -84,6 +84,7 @@ class GameSettingsViewController: UIViewController, UIPickerViewDataSource, UIPi
             
             destinationVC?.totalTime = timer
             destinationVC?.language = chosenLanguage
+            destinationVC?.difficulty = choosenDifficultyLevel
             
             SoundManager.shared.stopMusic()
         }
