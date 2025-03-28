@@ -35,22 +35,24 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        currentWord = randomWordGenerator()
-        
-        wordLabel.text = currentWord.word
-
-        
-        createTextFields(currentWord.answer)
-
-        SoundManager.shared.playGameMusic()
-
-        
         inputStackView.axis = .horizontal
         inputStackView.spacing = 10
         inputStackView.alignment = .center
         inputStackView.distribution = .fillEqually
+      
+        currentWord = randomWordGenerator()
+      
+        updateUI()
+        
+        wordLabel.text = currentWord.word
+
+        SoundManager.shared.playGameMusic()
+        print(currentWord.word, currentWord.answer)
+        
+        createTextFields(currentWord.answer)
     }
+    
+   
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -71,6 +73,8 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
         }
         
         let answer = currentWord.answer
+        
+        print("Answer: \(answer)")
         
         for _ in answer {
             let textField = UITextField()
@@ -101,11 +105,36 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
     
     func textField(_ textField : UITextField, shouldChangeCharactersIn range: NSRange, replacementString string : String) -> Bool {
         
-       
-        
         if string.count > 1 {
             return false
         }
+        
+        if string.isEmpty {
+            
+
+          
+            if let currentIndex = inputStackView.arrangedSubviews.firstIndex(of: textField) {
+                
+                //Let backspace work.
+                textField.text = ""
+               
+                if (textField.text?.isEmpty ?? true) {
+                
+                if currentIndex == 0 {
+                    textField.text = ""
+                } else {
+                    
+                   
+                        let previousTextField = inputStackView.arrangedSubviews[currentIndex - 1] as! UITextField
+                
+                        previousTextField.becomeFirstResponder()
+                
+                    }
+                }
+            }
+            return false
+          
+    }
         
         if let currentIndex = inputStackView.arrangedSubviews.firstIndex(of: textField), string.count == 1 {
             textField.text = (textField.text as NSString?)?.replacingCharacters(in: range, with: string)
@@ -251,6 +280,7 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
             return wordManager.germanWords.randomElement() ?? Word(word: "Funka ej tyska", answer: "hello world")
         }
         return wordManager.englishWords.randomElement() ?? Word(word: "asd", answer: "asd")
+        
     }
     
     func checkInput() {
