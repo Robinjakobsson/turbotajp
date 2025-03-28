@@ -52,7 +52,6 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
-        
              if elapsedTime < totalTime ?? 1 {
                  
                  guard let inputText = textField.text else {
@@ -143,7 +142,7 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
         let seconds = Int(elapsedTime) % 60
         
         secondsLeftLabel.text = String(format: "%02d:%02d", minutes, seconds)
-        pointsLabel.text = String(points)
+        pointsLabel.text = "Points: \(points)"
         wordLabel.text = currentWord.word
         
         
