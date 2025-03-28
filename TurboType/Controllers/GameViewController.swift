@@ -101,11 +101,35 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
     
     func textField(_ textField : UITextField, shouldChangeCharactersIn range: NSRange, replacementString string : String) -> Bool {
         
-       
-        
         if string.count > 1 {
             return false
         }
+        
+        if string.isEmpty {
+
+            if let currentIndex = inputStackView.arrangedSubviews.firstIndex(of: textField) {
+                textField.text = ""
+                
+                if (textField.text?.isEmpty ?? true) {
+                
+                if currentIndex == 0 {
+                    textField.text = ""
+                } else {
+                        
+                        let previousTextField = inputStackView.arrangedSubviews[currentIndex - 1] as! UITextField
+                        
+                    if !(previousTextField.text?.isEmpty ?? true) {
+                        previousTextField.becomeFirstResponder()
+                        
+                    }
+                            textField.text = ""
+                        
+                    }
+                }
+            }
+            return false
+
+    }
         
         if let currentIndex = inputStackView.arrangedSubviews.firstIndex(of: textField), string.count == 1 {
             textField.text = (textField.text as NSString?)?.replacingCharacters(in: range, with: string)
