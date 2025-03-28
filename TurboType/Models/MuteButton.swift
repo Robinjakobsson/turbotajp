@@ -19,14 +19,23 @@ class MuteButton: UIButton {
         setupButton()
     }
     
+
+    
     private func setupButton() {
-        self.setTitle(SoundManager.shared.isMuted ? "Unmute" : "Mute", for: .normal)
+        updateButtonImage()
         self.addTarget(self, action: #selector(toggleSound), for: .touchUpInside)
     }
     
     @objc private func toggleSound() {
         SoundManager.shared.toggleMute()
-        self.setTitle(SoundManager.shared.isMuted ? "Unmute" : "Mute", for: .normal)
+        updateButtonImage()
+    }
+    
+    private func updateButtonImage() {
+        let imageName = SoundManager.shared.isMuted ? "speaker.slash" : "speaker.wave.2"
+        let image = UIImage(systemName: imageName)?
+            .withConfiguration(UIImage.SymbolConfiguration(pointSize: 30, weight: .regular))
+        self.setImage(image, for: .normal)
     }
     
 }

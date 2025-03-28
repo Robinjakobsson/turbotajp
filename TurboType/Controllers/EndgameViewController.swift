@@ -23,7 +23,7 @@ class EndgameViewController: UIViewController {
         super.viewDidLoad()
 
 
-        endGameMusic(forResource: "endGame")
+        SoundManager.shared.endGameMusic(forResource: "endGame")
         showConfetti()
        
 
@@ -64,18 +64,6 @@ class EndgameViewController: UIViewController {
             let destinationVC = segue.destination as? GameplayViewController
             
             destinationVC?.totalTime = totalTime
-        }
-    }
-
-    
-    func endGameMusic(forResource resource: String) {
-        if let url = Bundle.main.url(forResource: resource, withExtension: "mp3") {
-            do {
-                endGameSound = try AVAudioPlayer(contentsOf: url)
-                endGameSound?.play()
-            } catch {
-                print("Kunde inte spela upp ljudet")
-            }
         }
     }
     
