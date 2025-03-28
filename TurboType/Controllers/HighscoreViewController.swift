@@ -35,8 +35,8 @@ class HighscoreViewController: UIViewController {
        scores = highScores.map { score in
             HighScore(
                 points: score["points"] as? Int ?? 0,
-                language: score["language"] as? String ?? "Unknown",
-                difficulty: score["difficulty"] as? String ?? "Unknown"
+                language: score["language"] as? String ?? "English",
+                difficulty: score["difficulty"] as? String ?? "Easy"
             )
         }
         tableView.reloadData()

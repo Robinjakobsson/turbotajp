@@ -17,6 +17,8 @@ class EndgameViewController: UIViewController {
     var homeScreenSegue = "homeScreenSegue"
     var score : Int?
     
+    var scores : [HighScore] = []
+    
     @IBOutlet weak var currentHighscore: UILabel!
     
     override func viewDidLoad() {
@@ -31,19 +33,22 @@ class EndgameViewController: UIViewController {
             let scoreString = String(totalScore)
             scoreTextLabel.text = scoreString
             
+            
             let userDefaults = UserDefaults.standard
-            if let scores = userDefaults.array(forKey: "highScores") as? [Int], !scores.isEmpty {
-                let highscore = scores[0]
-                
-                if totalScore == highscore {
-                    
-                    currentHighscore.text = "New highscore: \(highscore)"
-                    
-                } else {
-                    currentHighscore.text = "Current highscore: \(highscore)"
-                    print("current highscore: \(highscore)")
-                }
+            let highScores = userDefaults.array(forKey: "highScores") as? [[String: Any]] ?? []
+            
+            let highscore = highScores.map { score in
+                HighScore(
+                    points: score["points"] as? Int ?? 0,
+                    language: score["language"] as? String ?? "English",
+                    difficulty: score["difficulty"] as? String ?? "Easy"
+                )
             }
+            
+            let highscoreText = highscore.map { "\($0.points)" }.joined(separator: "\n")
+            
+            currentHighscore.text = "Current highscore: \(highscoreText)"
+            
         }
     }
     

@@ -17,7 +17,7 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var hiddenWord: UILabel!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var passButton: UIButton!
-    //@IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var wordLabel: UILabel!
     @IBOutlet weak var pointsLabel: UILabel!
     @IBOutlet weak var secondsLeftLabel: UILabel!
@@ -30,148 +30,43 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
     var elapsedTime : Double = 0.0
     var timer : Timer?
     var currentWord : Word!
-    
-    @IBOutlet weak var inputStackView: UIStackView!
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-        inputStackView.axis = .horizontal
-        inputStackView.spacing = 10
-        inputStackView.alignment = .center
-        inputStackView.distribution = .fillEqually
       
+        textField.returnKeyType = .done
+        textField.delegate = self
+        
         currentWord = randomWordGenerator()
-      
-        updateUI()
-        
         wordLabel.text = currentWord.word
-
         SoundManager.shared.playGameMusic()
-        print(currentWord.word, currentWord.answer)
         
-        createTextFields(currentWord.answer)
+        textField.text = ""
+        textField.becomeFirstResponder()
+        
     }
     
-   
-    
-    
     override func viewWillAppear(_ animated: Bool) {
-        inputStackView.axis = .horizontal
-        inputStackView.spacing = 10
-        inputStackView.alignment = .center
-        inputStackView.distribution = .fillEqually
         resetGame()
     }
     
-    
-    func createTextFields(_ word : String) {
-        
-        print("Creating text fields for answer: \(word)")
-        
-        for subview in inputStackView.arrangedSubviews {
-            subview.removeFromSuperview()
-        }
-        
-        let answer = currentWord.answer
-        
-        print("Answer: \(answer)")
-        
-        for _ in answer {
-            let textField = UITextField()
-            textField.delegate = self
-            textField.borderStyle = .roundedRect
-            textField.textAlignment = .center
-            textField.keyboardType = .default
-            textField.returnKeyType = .done
-            textField.isUserInteractionEnabled = true
-            textField.autocapitalizationType = .allCharacters
-            
-            
-            inputStackView.addArrangedSubview(textField)
-            
-        }
-        
-        for subview in inputStackView.arrangedSubviews {
-            if let textfield = subview as? UITextField {
-                textfield.text = ""
-            }
-        }
-        
-        if let firstTextField = inputStackView.arrangedSubviews.first as? UITextField {
-            firstTextField.becomeFirstResponder()
-        }
-        
-    }
-    
-    func textField(_ textField : UITextField, shouldChangeCharactersIn range: NSRange, replacementString string : String) -> Bool {
-        
-        if string.count > 1 {
-            return false
-        }
-        
-        if string.isEmpty {
-            
-
-          
-            if let currentIndex = inputStackView.arrangedSubviews.firstIndex(of: textField) {
-                
-                //Let backspace work.
-                textField.text = ""
-               
-                if (textField.text?.isEmpty ?? true) {
-                
-                if currentIndex == 0 {
-                    textField.text = ""
-                } else {
-                    
-                   
-                        let previousTextField = inputStackView.arrangedSubviews[currentIndex - 1] as! UITextField
-                
-                        previousTextField.becomeFirstResponder()
-                
-                    }
-                }
-            }
-            return false
-          
-    }
-        
-        if let currentIndex = inputStackView.arrangedSubviews.firstIndex(of: textField), string.count == 1 {
-            textField.text = (textField.text as NSString?)?.replacingCharacters(in: range, with: string)
-            
-            if currentIndex + 1 < inputStackView.arrangedSubviews.count {
-                let nextTextField = inputStackView.arrangedSubviews[currentIndex + 1] as! UITextField
-                nextTextField.becomeFirstResponder()
-            }
-            return false
-        }
-        return true
-    }
-    
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
-        if elapsedTime < totalTime ?? 1 {
-            
-            let allFilled = inputStackView.arrangedSubviews.allSatisfy {
-                if let textField = $0 as? UITextField {
-                    return !(textField.text?.isEmpty ?? true)
-                    
-                }
-                return false
-            }
-            
-            if allFilled {
-                checkInput()
-            }
-            
-            textField.resignFirstResponder()
-            return true
-            
-        }
-        return true
-    }
-    
+             if elapsedTime < totalTime ?? 1 {
+                 
+                 guard let inputText = textField.text else {
+                     return true
+                 }
+                 
+                 checkInput(input: inputText, word: currentWord)
+                 
+                 textField.text = ""
+                 
+                 return true
+                 
+             }
+             return true
+         }
     
     @IBAction func passButtonPressed(_ sender: Any) {
         let newRandomWord = randomWordGenerator()
@@ -211,7 +106,6 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
                 
                 self.performSegue(withIdentifier: "toEndGame", sender: nil)
                 
-               // self.alertBox()
             }
         }
         
@@ -237,13 +131,7 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
     }
     
     func updateUI() {
-        //textField.isHidden = false
-        
-        inputStackView.axis = .horizontal
-        inputStackView.spacing = 10
-        inputStackView.alignment = .center
-        inputStackView.distribution = .fillEqually
-        
+        textField.isHidden = false
         wordLabel.isHidden = false
         pointsLabel.isHidden = false
         secondsLeftLabel.isHidden = false
@@ -254,7 +142,7 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
         let seconds = Int(elapsedTime) % 60
         
         secondsLeftLabel.text = String(format: "%02d:%02d", minutes, seconds)
-        pointsLabel.text = String(points)
+        pointsLabel.text = "Points: \(points)"
         wordLabel.text = currentWord.word
         
         
@@ -283,58 +171,38 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
         
     }
     
-    func checkInput() {
-        
-        print("Current answer: \(currentWord.answer) and Current Word: \(currentWord.word)")
-        
-        var inputText = ""
-        
-        for subview in inputStackView.arrangedSubviews {
-            if let textField = subview as? UITextField {
-                if let text = textField.text {
-                    inputText += text
-                }
-            }
-        }
-        
-        
-        
-        let trimmedInput = inputText.trimmingCharacters(in: .whitespacesAndNewlines)
-        let trimmedAnswer = currentWord.answer.trimmingCharacters(in: .whitespacesAndNewlines)
-        
-        print("\(trimmedInput)")
-        print("trimmed answer:\(trimmedAnswer)")
-        
-        
-        
-        if trimmedInput.lowercased() == trimmedAnswer.lowercased() {
-            points += 10
-            print("Rätt svar!")
-
-            self.view.backgroundColor = UIColor.fromHex("#82DE60")
-            SoundManager.shared.playSoundEffect(forResource: "correct")
-
+    func checkInput(input : String, word: Word) {
+            let trimmedInput = input.trimmingCharacters(in: .whitespacesAndNewlines)
+            let trimmedAnswer = word.answer.trimmingCharacters(in: .whitespacesAndNewlines)
             
-        } else {
-            hiddenWord.text = currentWord.answer
-            hiddenWord.isHidden = false
-            print("Fel svar")
-            elapsedTime -= 5
-            self.view.backgroundColor = UIColor.fromHex("#ED696B")
-            SoundManager.shared.playSoundEffect(forResource: "incorrect")
+            print("\(trimmedInput)")
+            print("trimmed answer:\(trimmedAnswer)")
+            
+            if trimmedInput.lowercased() == trimmedAnswer.lowercased() {
+                points += 10
+                print("Rätt svar!")
+                self.view.backgroundColor = UIColor.fromHex("#82DE60")
+                SoundManager.shared.playSoundEffect(forResource: "correct")
+
+                
+            } else {
+                hiddenWord.text = currentWord.answer
+                hiddenWord.isHidden = false
+                print("Fel svar")
+                elapsedTime -= 5
+                self.view.backgroundColor = UIColor.fromHex("#ED696B")
+                SoundManager.shared.playSoundEffect(forResource: "incorrect")
+            }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.view.backgroundColor = UIColor.fromHex("#A1B5D8")
+                self.hiddenWord.isHidden = true
+                self.currentWord = self.randomWordGenerator()
+                self.updateUI()
+            }
+            
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.view.backgroundColor = UIColor.fromHex("#A1B5D8")
-            self.currentWord = self.randomWordGenerator()
-            self.hiddenWord.isHidden = true
-            self.updateUI()
-            self.createTextFields(self.currentWord.answer)
-        }
-        
-    }
-    
-    
     func resetGame() {
         hiddenWord.isHidden = true
         points = 0
