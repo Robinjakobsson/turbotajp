@@ -528,7 +528,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="r2d-1h-eUs"/>
                                 </constraints>
-                                <color key="tintColor" red="0.18691408634185791" green="0.52268725633621216" blue="0.08773166686296463" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="1" green="0.98823529480000005" blue="0.97254902119999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Home" cornerStyle="large">
                                     <backgroundConfiguration key="background">
@@ -539,7 +539,7 @@
                                     <color key="baseBackgroundColor" red="1" green="0.98823529480000005" blue="0.97254902119999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="presentation" id="S8Y-84-bjx"/>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="S8Y-84-bjx"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -726,8 +726,9 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="pFs-0o-JVJ"/>
-        <segue reference="2cp-SK-ov9"/>
-        <segue reference="S8Y-84-bjx"/>
+        <segue reference="vHy-kU-mg6"/>
+        <segue reference="tP2-2k-BgH"/>
+
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>

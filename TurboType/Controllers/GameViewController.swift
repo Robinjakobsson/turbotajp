@@ -72,6 +72,7 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
         let newRandomWord = randomWordGenerator()
         currentWord = newRandomWord
         elapsedTime -= 2.5
+        textField.text = ""
         updateUI()
     }
    
@@ -126,6 +127,7 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
             
             destinationVC?.totalTime = totalTime
             destinationVC?.score = points
+            destinationVC!.language = language
         }
         
     }
