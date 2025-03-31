@@ -413,7 +413,7 @@
                                     </backgroundConfiguration>
                                     <fontDescription key="titleFontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="18"/>
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="baseBackgroundColor" red="0.95437389612197876" green="0.9693877100944519" blue="0.90656083822250366" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="baseBackgroundColor" red="1" green="0.98823529480000005" blue="0.97254902119999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="passButtonPressed:" destination="Lts-ko-VMa" eventType="touchUpInside" id="68O-J2-nzF"/>
@@ -725,6 +725,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="2LA-OA-puT"/>
         <segue reference="GWq-TG-rYm"/>
         <segue reference="2cp-SK-ov9"/>
         <segue reference="S8Y-84-bjx"/>
