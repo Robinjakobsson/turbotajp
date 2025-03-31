@@ -21,12 +21,13 @@ class HomeViewController: UIViewController {
     }
     
     func alertBox() {
-        let titleText = "Info\n"
+        let titleText = "Game Info\n"
         let messageText = """
-        Information om spelet\n
-        Easy: Hej\n
-        Medium: Hello\n
-        Hard: Tja
+        Your goal is to translate the words as fast as possible before before time runs out.\n
+        Difficulty levels:\n
+        Easy: 60 seconds per round\n
+        Medium: 45 seconds per round\n
+        Hard: 30 seconds per round
         """
         
         let alertController = UIAlertController(title: titleText, message: messageText, preferredStyle: .alert)
