@@ -486,11 +486,11 @@
             <objects>
                 <viewController id="uWy-s8-xvA" customClass="HighscoreViewController" customModule="TurboType" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2Zo-8h-4Hf">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="BLb-Re-oJ4">
-                                <rect key="frame" x="20" y="214" width="353" height="476"/>
+                                <rect key="frame" x="20" y="214" width="353" height="466"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="sectionIndexBackgroundColor" red="0.71807108048190527" green="0.7787757847653054" blue="0.92872196255154638" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
@@ -524,11 +524,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kab-P2-O5l">
-                                <rect key="frame" x="132" y="709" width="120" height="45"/>
+                                <rect key="frame" x="132" y="699" width="120" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="r2d-1h-eUs"/>
                                 </constraints>
-                                <color key="tintColor" red="0.18691408634185791" green="0.52268725633621216" blue="0.08773166686296463" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="1" green="0.98823529480000005" blue="0.97254902119999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Home" cornerStyle="large">
                                     <backgroundConfiguration key="background">
@@ -539,7 +539,7 @@
                                     <color key="baseBackgroundColor" red="0.95437389612197876" green="0.9693877100944519" blue="0.90656083822250366" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="presentation" id="S8Y-84-bjx"/>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="S8Y-84-bjx"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -725,8 +725,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="GWq-TG-rYm"/>
-        <segue reference="2cp-SK-ov9"/>
+        <segue reference="pFs-0o-JVJ"/>
+        <segue reference="vHy-kU-mg6"/>
         <segue reference="tP2-2k-BgH"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

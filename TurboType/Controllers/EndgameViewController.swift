@@ -16,6 +16,7 @@ class EndgameViewController: UIViewController {
     var totalTime : Double?
     var homeScreenSegue = "homeScreenSegue"
     var score : Int?
+    var language : String?
     
     var scores : [HighScore] = []
     
@@ -69,6 +70,7 @@ class EndgameViewController: UIViewController {
             let destinationVC = segue.destination as? GameplayViewController
             
             destinationVC?.totalTime = totalTime
+            destinationVC?.language = language
         }
     }
     
