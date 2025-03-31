@@ -88,8 +88,9 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
             self.timerView.setProgress(progress, animated: true)
             self.updateUI()
             
-            if self.elapsedTime <= 5 {
+            if self.elapsedTime <= 6 {
                 self.timerView.progressTintColor = UIColor.red
+                self.secondsLeftLabel.textColor = UIColor.red
                 self.startBlinking()
             } else {
                 self.timerView.progressTintColor = UIColor.black
@@ -115,6 +116,7 @@ class GameplayViewController: UIViewController, UITextFieldDelegate{
     func startBlinking() {
         UIView.animate(withDuration: 0.3, delay: 0, options: [.autoreverse, .repeat], animations: {
             self.timerView.alpha = 0
+            self.secondsLeftLabel.alpha = 0
 
         })
     }
