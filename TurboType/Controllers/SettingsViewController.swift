@@ -26,6 +26,11 @@ class GameSettingsViewController: UIViewController, UIPickerViewDataSource, UIPi
         difficultyLevelPicker.delegate = self
         difficultyLevelPicker.dataSource = self
         
+        difficultyLevelPicker.selectRow(0, inComponent: 0, animated: false)
+        difficultyLevelPicker.selectRow(0, inComponent: 1, animated: false)
+        
+        chosenLanguage = language[0]
+        
     }
     
     @IBAction func startGameButton(_ sender: UIButton) {
@@ -59,8 +64,7 @@ class GameSettingsViewController: UIViewController, UIPickerViewDataSource, UIPi
         
         chosenLanguage = language[row]
         print("\(String(describing: chosenLanguage)) selected")
-        //let choosenDifficulty = difficulty[row]
-        //Just a comment.
+        
         
     }
     
@@ -87,6 +91,7 @@ class GameSettingsViewController: UIViewController, UIPickerViewDataSource, UIPi
             destinationVC?.difficulty = choosenDifficultyLevel
             
             SoundManager.shared.stopMusic()
+            
         }
         
     }
