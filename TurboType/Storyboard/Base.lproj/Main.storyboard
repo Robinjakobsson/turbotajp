@@ -14,7 +14,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="TurboType" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TKQ-9w-SKV">
@@ -593,7 +593,7 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="highscoreButton:" destination="H5y-uZ-P2G" eventType="touchUpInside" id="PB5-EH-JcL"/>
-                                    <segue destination="uWy-s8-xvA" kind="presentation" identifier="toHighScore" modalPresentationStyle="fullScreen" id="GWq-TG-rYm"/>
+                                    <segue destination="uWy-s8-xvA" kind="presentation" identifier="toHighScore" modalPresentationStyle="automatic" id="GWq-TG-rYm"/>
                                 </connections>
                             </button>
                             <view clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9LC-h5-pMK">
@@ -725,10 +725,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="pFs-0o-JVJ"/>
-        <segue reference="vHy-kU-mg6"/>
-        <segue reference="tP2-2k-BgH"/>
-
+        <segue reference="GWq-TG-rYm"/>
+        <segue reference="2cp-SK-ov9"/>
+        <segue reference="S8Y-84-bjx"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
